@@ -25,7 +25,7 @@ ASK_ONTIME=YES
 GENERATE_ALLJOIN=YES
 GENERATE_LATE=YES
 GENERATE_CSV=YES
-DATE=3/9/2026
+DATE=3/10/2026
 
 
 ==================================================
@@ -57,51 +57,60 @@ TRIGGER BLOCK 3
 Statu = 1
 
 List Of All-Join:
+
 Vikas Nayak (Me)
 
-Dinesh Kumar
-Ajay Nayak
-Namchand Nayak
-Pooja Sudiya
-Arnav Bishnoi
-Sunil Kori
-Anita Nayak
-Rahul
-Harpreet Singh
-Khushbu
-Sandeep Barupal
-Sahil Sudiya
-Jaspal Byavat
-Tarachand Lohara
-Himanshu Nayak
-Aira
-Poonam Kumari
+A"dii Sunlay (Host)
+
 Gurpreet Singh 2
+Rajani Rani
+Tarachand
+Sunil kori
 Gagan Chouhan
-Sumit Kumar
+Jaspal Byavat
+Harish Jaypal
+Abhinav Bishnoi
+Arnav Bishnoi
+Prem Kumar
+Himanshu Nayak
+RAJESH NAYAK
+Poonam Kumari
+Dinesh kumar
+Sahil Sudiya
+khushbu
+Sumit
+SH|VAM-B|SHNOI
+Sandeep Barupal
+Rahul
+Pooja Sudiya
+Anita Nayak
+Harpreet Singh
+Dinesh kumar
+
 
 
 List Of Time Par Join:
 
 
+Vikas Nayak
 A"dii Sunlay 
-Dinesh kumar
-Ajay Nayak
-Namchand Nayak
-Pooja Sudiya
-Arnav Bishnoi
+Gurpreet Singh 2
+Rajani Rani
+Tarachand 
 Sunil kori
-Vikas Nayak (Me)
-Anita Nayak
-Harpreet Singh
-khushbu
-Sandeep Barupal
-Sahil Sudiya
+Gagan Chouhan
 Jaspal Byavat
-Tarachand Lohara
+Harish Jaypal
+Abhinav Bishnoi
+Arnav Bishnoi
+Gagan kumar
+Prem Kumar
 Himanshu Nayak
-
-
+RAJESH NAYAK
+Poonam Kumari
+Harpreet Singh
+Dinesh kumar
+SH|VAM-B|SHNOI
 
 ==================================================
 TRIGGER BLOCK 4
@@ -131,3 +140,6 @@ Rules:
 4. Absent column me absent .... ke naam likho.
 5. Output plain table format me ho, Excel file generate nahi karni.
 6. Table copy-paste friendly honi chahiye.
+
+
+table ko team par bhejne se phele image ke format ko dekh lena iske hisab se send kar kachra nhi karna sahi format se send karna hai

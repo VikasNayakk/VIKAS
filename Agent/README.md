@@ -36,6 +36,34 @@ This opens a UI window with Start/Stop buttons and live status logs.
 One-click start (double click):
 - `start_ui.bat`
 
+## Zoom meeting member count every 5 minutes
+
+New tool: `zoom_member_counter.py`
+
+What it does:
+- Opens your Zoom join link in the default browser.
+- Lets you select the exact participant-count area on screen.
+- Reads participant/member count with OCR.
+- Logs count every 5 minutes (or custom interval) into CSV.
+
+Run:
+```powershell
+cd "c:\Users\VikasNayak\OneDrive - Aliens Company\VIKAS\Agent"
+py zoom_member_counter.py
+```
+
+One-click start (double click):
+- `start_zoom_counter.bat`
+
+Workflow:
+1. Click `Open Join Link` and join meeting.
+2. In Zoom, open the Participants panel so count is visible.
+3. Click `Select Count Area` and box the count text.
+4. Click `Start Counting`.
+
+CSV default path:
+- `..\Aliens-Meeting\Main\Table\MemberCount-MM-DD-YYYY.csv`
+
 ## Configure using your two images (READY and STOP)
 1. Open your AI chat interface on screen.
 2. Run `py Index.py`.
