@@ -19,6 +19,8 @@
     <a href="projects.html">Projects</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
+    <a href="aliens-meeting.html">Meeting</a>
+    <a href="todo.html">ToDo</a>
   </aside>
 
   <div class="site-wrap">
@@ -36,17 +38,19 @@
         <a href="projects.html">Projects</a>
         <a href="gallery.html">Characters</a>
         <a href="contact.html">Contact</a>
+        <a href="aliens-meeting.html">Meeting</a>
+        <a href="todo.html">ToDo</a>
       </nav>
     </header>
 
     <main class="layout">
       <aside class="char-rail glow-frame" data-rail>
         <div class="rail-track">
-          <figure class="char-card"><img src="assets/characters/char-1.png" alt="Alien character 1" /><figcaption>WING MONKEY</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-2.png" alt="Alien character 2" /><figcaption>RETRO BOSS</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien character 3" /><figcaption>MASK TEAM</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-1.png" alt="Alien character 1 copy" /><figcaption>WING MONKEY</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-2.png" alt="Alien character 2 copy" /><figcaption>RETRO BOSS</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
         </div>
       </aside>
 
@@ -56,6 +60,7 @@
             <div>
               <p class="chip">NEW ERA UI</p>
               <h2>Aliens Style Full Website</h2>
+              <p class="hero-tagline">Built by <span>Vikas Nayak</span> · Aliens Commander</p>
               <p>Single page se upgrade karke ab complete multi-page site ready hai with animated side characters, futuristic cards, and neon command visuals.</p>
               <div class="hero-cta">
                 <a href="projects.html" class="btn">Explore Projects</a>
@@ -68,35 +73,204 @@
           </div>
         </section>
 
-        <section class="home-grid">
-          <article class="glow-tile panel">
-            <h3>Mission Feed</h3>
+        <!-- ══════════ QUICK STATS STRIP ══════════ -->
+        <section class="home-stats-strip reveal">
+          <article class="home-stat-card hsc-blue">
+            <div class="hsc-icon">&#128640;</div>
+            <div class="hsc-info">
+              <span class="hsc-num mono">7</span>
+              <span class="hsc-label">Pages Built</span>
+            </div>
+          </article>
+          <article class="home-stat-card hsc-green">
+            <div class="hsc-icon">&#9889;</div>
+            <div class="hsc-info">
+              <span class="hsc-num mono">12340h</span>
+              <span class="hsc-label">Build Hours</span>
+            </div>
+          </article>
+          <article class="home-stat-card hsc-purple">
+            <div class="hsc-icon">&#127912;</div>
+            <div class="hsc-info">
+              <span class="hsc-num mono">10+</span>
+              <span class="hsc-label">Roles Active</span>
+            </div>
+          </article>
+          <article class="home-stat-card hsc-orange">
+            <div class="hsc-icon">&#128161;</div>
+            <div class="hsc-info">
+              <span class="hsc-num mono">100%</span>
+              <span class="hsc-label">Aliens Theme</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- ══════════ MISSION FEED ══════════ -->
+        <section class="home-grid reveal">
+          <article class="glow-tile panel home-mission">
+            <h3>&#127919; Mission Feed</h3>
             <ul class="mono clean-list">
-              <li>UI Engine Upgrade</li>
-              <li>Character Animation Track</li>
-              <li>Responsive Site Deployment</li>
+              <li><span class="mission-dot mission-dot-live"></span> UI Engine Upgrade</li>
+              <li><span class="mission-dot mission-dot-done"></span> Character Animation Track</li>
+              <li><span class="mission-dot mission-dot-live"></span> Responsive Site Deployment</li>
+              <li><span class="mission-dot mission-dot-done"></span> Multi-Page Architecture</li>
+              <li><span class="mission-dot mission-dot-live"></span> Neon Command System</li>
             </ul>
           </article>
-          <article class="glow-tile panel">
-            <h3>Total Build Hours</h3>
-            <p class="big" id="totalHours">12340h</p>
-            <div class="progress-wrap"><div class="progress-line" id="deployProgress"></div></div>
+          <article class="glow-tile panel home-deploy">
+            <h3>&#128225; Deploy Status</h3>
+            <div class="deploy-ring-wrap">
+              <svg viewBox="0 0 36 36" class="deploy-ring-svg">
+                <defs>
+                  <linearGradient id="deployGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#42b8ff"/>
+                    <stop offset="100%" stop-color="#BF5AF2"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="18" cy="18" r="15.9" class="deploy-ring-bg"/>
+                <circle cx="18" cy="18" r="15.9" class="deploy-ring-fill"/>
+              </svg>
+              <span class="deploy-ring-pct mono">86%</span>
+            </div>
+            <p class="mono deploy-label">Deployment Progress</p>
+            <div class="progress-wrap"><div class="progress-line" style="width:86%;"></div></div>
           </article>
+        </section>
+
+        <section class="resp-section glow-tile reveal">
+          <header class="resp-header">
+            <h2>🧑‍💼 My Responsibilities</h2>
+            <p class="mono">Daily work areas &amp; ownership at Aliens Company</p>
+          </header>
+          <div class="resp-grid">
+
+            <div class="resp-card">
+              <h4>📌 Project &amp; Planning</h4>
+              <ul>
+                <li>New Project Setup</li>
+                <li>Project Research &amp; Planning</li>
+                <li>Monthly Planning Report तैयार करना</li>
+                <li>Project Tracking (Bhagsar &amp; Ramsinghpur)</li>
+                <li>Projects Auditing</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>📊 Excel &amp; Data Management</h4>
+              <ul>
+                <li>Planner / Excel बनाना और मैनेज करना</li>
+                <li>Excel Management</li>
+                <li>Excel Auditing</li>
+                <li>All Excel Data Fill करना</li>
+                <li>Data Entry (Pending Tasks सहित)</li>
+                <li>Database Entry</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>👥 Team &amp; Coordination</h4>
+              <ul>
+                <li>Team Updates (Project Bhagsar &amp; Ramsinghpur)</li>
+                <li>Team Problems Note करना</li>
+                <li>Zero Team Training</li>
+                <li>Members Counting &amp; Reporting</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>🧠 Research &amp; Development</h4>
+              <ul>
+                <li>Research &amp; Development (R&amp;D)</li>
+                <li>Conversation Create करना</li>
+                <li>Template List तैयार करना &amp; Entry करना</li>
+                <li>Stage System Ready करना</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>🧾 Reports &amp; Documentation</h4>
+              <ul>
+                <li>Aliens Meeting PDF Ready करना</li>
+                <li>Monthly / Planning Reports बनाना</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>🏢 Facility &amp; Operations</h4>
+              <ul>
+                <li>Facility Tasks (Bhagsar &amp; Ramsinghpur)</li>
+                <li>Facility Work Monitoring</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>🧪 Testing &amp; QA</h4>
+              <ul>
+                <li>Venom Testing</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>🌐 Web, App &amp; Software</h4>
+              <ul>
+                <li>Aliens Inc Website (AnilCyborg से)</li>
+                <li>Code Generation using AnilCyborg</li>
+                <li>Apps Copy using Venom</li>
+                <li>New Apps Creation using AnilCyborg</li>
+                <li>Web Scraping using Spider &amp; Other Tools</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>🧩 Brand &amp; System Dev</h4>
+              <ul>
+                <li>New Brand Creation using AnilCyborg</li>
+                <li>Create Alias</li>
+                <li>Database Linking</li>
+                <li>Brand Theme System Handling</li>
+              </ul>
+            </div>
+
+            <div class="resp-card">
+              <h4>💼 Business &amp; Services</h4>
+              <ul>
+                <li>Fiverr Service Add करना</li>
+                <li>Service Listing &amp; Management</li>
+              </ul>
+            </div>
+
+          </div>
         </section>
       </section>
 
       <aside class="char-rail glow-frame right" data-rail>
         <div class="rail-track reverse">
-          <figure class="char-card"><img src="assets/characters/char-2.png" alt="Alien character right 1" /><figcaption>RETRO BOSS</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien character right 2" /><figcaption>MASK TEAM</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-1.png" alt="Alien character right 3" /><figcaption>WING MONKEY</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-2.png" alt="Alien character right 1 copy" /><figcaption>RETRO BOSS</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien character right 2 copy" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
         </div>
       </aside>
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">ALIENS PORTAL</div>
+      <div class="footer-divider"></div>
+      <p class="footer-tagline">Designed &amp; Built by <span>Vikas Nayak</span> · Aliens Company &copy; 2026</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="aliens-meeting.html">Meeting</a>
+        <a href="todo.html">ToDo</a>
+      </div>
+    </footer>
   </div>
 
   <script src="script.js" defer></script>
+  <script src="icons.js" defer></script>
 </body>
 </html>

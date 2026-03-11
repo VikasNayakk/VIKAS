@@ -1,19 +1,5 @@
-﻿Navraj Singh
-Rajveer Nayak
-Aira
-Ajay Nayak
-Gagan Kumar
-Mandeep Kaur
-Nitesh Aggrwal
-Paras Aggrwal
-Parveen Kumar
-Pawan Kumar
-Pooja Nayak
-Raju Singh
-Sahiram Nayak
-Shyo Chand
-Yogesh Khand
-Dinesh
+All Student List:- 
+
 Bharat Ram
 Ravina
 Mamta-2
@@ -24,6 +10,7 @@ Somveer
 Ravishankar
 Darsh
 Sidhant
+Shivam
 Anmol
 Gopal
 Namchand
@@ -31,6 +18,7 @@ Somdev
 Gursaj Singh
 Satish Kumar
 Bhavishya Jayani
+Gagan Kumar
 Rohit Kumar
 Vishal
 Gotam
@@ -53,5 +41,8 @@ Suyogita
 Komal Kanwar
 Lokender
 Neha
+Sumit
 Bhavna
 Kajal
+,
+

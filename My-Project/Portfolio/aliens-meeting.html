@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aliens Site | Meeting Records</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo+2:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <aside class="quick-sidebar glow-frame mono" aria-label="Sidebar Menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a class="active" href="aliens-meeting.html">Meeting</a>
+    <a href="todo.html">ToDo</a>
+  </aside>
+
+  <div class="site-wrap">
+    <header class="site-header glow-frame">
+      <div class="brand"><img class="brand-logo" src="assets/characters/aliens-badge.png" alt="Aliens Certified badge" /><div><p class="mono">ALIENS CERTIFIED</p><h1>ALIENS MEETING RECORDS</h1></div></div>
+      <nav class="main-nav mono">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Characters</a>
+        <a href="contact.html">Contact</a>
+        <a class="active" href="aliens-meeting.html">Meeting</a>
+        <a href="todo.html">ToDo</a>
+      </nav>
+    </header>
+
+    <main class="layout one-col">
+      <section class="meeting-board glow-frame">
+        <section class="meeting-topbar reveal">
+          <article class="meeting-stat glow-tile" style="border-top:2px solid #0A84FF">
+            <p class="mono">TOTAL FILES</p>
+            <h2 id="recordCount">0</h2>
+          </article>
+          <article class="meeting-stat glow-tile" style="border-top:2px solid #BF5AF2">
+            <p class="mono">PREVIEW READY</p>
+            <h2 id="previewCount">0</h2>
+          </article>
+          <article class="meeting-stat glow-tile" style="border-top:2px solid #30D158">
+            <p class="mono">TOTAL SIZE</p>
+            <h2 id="totalSize">0 KB</h2>
+          </article>
+        </section>
+
+        <section class="meeting-controls glow-tile">
+          <label class="mono" for="recordSearch">Search records</label>
+          <input id="recordSearch" type="search" placeholder="Type file name, folder, date, keyword..." />
+          <p class="mono meeting-note">Source copy: <code>Portfolio/aliens-meeting-records</code></p>
+        </section>
+
+        <section class="meeting-tabs mono">
+          <button type="button" class="tab-btn active" data-tab="records">Records</button>
+          <button type="button" class="tab-btn" data-tab="table-new">Table New</button>
+        </section>
+
+        <section class="meeting-grid" id="tabRecords">
+          <article class="meeting-list glow-tile" id="recordList" aria-label="Meeting records list"></article>
+          <article class="meeting-preview glow-tile">
+            <header class="meeting-preview-head">
+              <h3 id="previewTitle">Select a file</h3>
+              <a id="openSourceLink" class="btn ghost" href="#" target="_blank" rel="noopener">Open Source File</a>
+            </header>
+            <div id="previewMeta" class="mono preview-meta"></div>
+            <div id="previewBody" class="preview-body">Pick any record from left side to view full content here.</div>
+          </article>
+        </section>
+
+        <section class="table-new-section" id="tabTableNew" style="display:none">
+          <div class="tn-header glow-tile">
+            <h3>Create New Attendance Table</h3>
+            <p class="mono">Add names row by row. Copy formatted table for Teams/WhatsApp sharing.</p>
+          </div>
+
+          <div class="tn-input-area glow-tile">
+            <div class="tn-paste-row">
+              <div>
+                <label class="mono" for="tnPresentPaste">Present Members (one per line)</label>
+                <textarea id="tnPresentPaste" rows="6" placeholder="Vikas Nayak&#10;Arnav Bishnoi&#10;Sunil Kori"></textarea>
+              </div>
+              <div>
+                <label class="mono" for="tnLatePaste">Late Members (one per line)</label>
+                <textarea id="tnLatePaste" rows="6" placeholder="Anita Nayak&#10;Himanshu Nayak"></textarea>
+              </div>
+              <div>
+                <label class="mono" for="tnAbsentPaste">Absent Members (one per line)</label>
+                <textarea id="tnAbsentPaste" rows="6" placeholder="Navraj Singh&#10;Rajveer Nayak"></textarea>
+              </div>
+            </div>
+            <div class="tn-actions">
+              <button type="button" class="btn" id="tnGenerate">Generate Table</button>
+              <button type="button" class="btn ghost" id="tnClear">Clear All</button>
+            </div>
+          </div>
+
+          <div class="tn-output glow-tile" id="tnOutputWrap" style="display:none">
+            <header class="tn-output-head">
+              <h3 id="tnOutputTitle">Generated Table</h3>
+              <div class="tn-copy-btns">
+                <button type="button" class="btn" id="tnSave">Save Table</button>
+                <button type="button" class="btn" id="tnCopyTable">Copy Table</button>
+              </div>
+            </header>
+            <div class="tn-save-name-row" id="tnSaveNameRow">
+              <input id="tnSaveName" type="text" placeholder="Table name, e.g. Table-3-11-2026" />
+            </div>
+            <p id="tnCopyStatus" class="mono tn-status"></p>
+            <div class="csv-wrap" id="tnTableRender"></div>
+          </div>
+
+          <div class="tn-saved glow-tile">
+            <header class="tn-saved-head">
+              <h3>Saved Tables</h3>
+              <p class="mono" id="savedTableCount">0 tables</p>
+            </header>
+            <div id="savedTableList" class="saved-table-list"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">ALIENS PORTAL</div>
+      <div class="footer-divider"></div>
+      <p class="footer-tagline">Designed &amp; Built by <span>Vikas Nayak</span> · Aliens Company © 2026</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="aliens-meeting.html">Meeting</a>
+        <a href="todo.html">ToDo</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="aliens-records-data.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="icons.js" defer></script>
+</body>
+</html>

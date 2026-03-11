@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aliens Site | ToDo List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo+2:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <aside class="quick-sidebar glow-frame mono" aria-label="Sidebar Menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="aliens-meeting.html">Meeting</a>
+    <a class="active" href="todo.html">ToDo</a>
+  </aside>
+
+  <div class="site-wrap">
+    <header class="site-header glow-frame">
+      <div class="brand">
+        <img class="brand-logo" src="assets/characters/aliens-badge.png" alt="Aliens Certified badge" />
+        <div>
+          <p class="mono">ALIENS CERTIFIED</p>
+          <h1>TODO TASK MANAGER</h1>
+        </div>
+      </div>
+      <nav class="main-nav mono">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Characters</a>
+        <a href="contact.html">Contact</a>
+        <a href="aliens-meeting.html">Meeting</a>
+        <a class="active" href="todo.html">ToDo</a>
+      </nav>
+    </header>
+
+    <main class="layout one-col">
+
+      <!-- ── Alarm Banner (hidden by default) ── -->
+      <div id="tdAlarmBanner" class="todo-alarm-banner glow-tile"></div>
+
+      <!-- ══════════ STATS DASHBOARD ══════════ -->
+      <section class="td-stats-dash reveal">
+        <article class="td-stat-card td-stat-total">
+          <div class="td-stat-ring">
+            <svg viewBox="0 0 36 36" class="td-ring-svg">
+              <circle cx="18" cy="18" r="15.9" class="td-ring-bg"/>
+              <circle cx="18" cy="18" r="15.9" class="td-ring-fill" id="tdRingTotal"/>
+            </svg>
+            <span class="td-stat-num" id="tdTotalCount">0</span>
+          </div>
+          <p class="mono td-stat-label">TOTAL</p>
+        </article>
+        <article class="td-stat-card td-stat-done">
+          <div class="td-stat-ring">
+            <svg viewBox="0 0 36 36" class="td-ring-svg">
+              <circle cx="18" cy="18" r="15.9" class="td-ring-bg"/>
+              <circle cx="18" cy="18" r="15.9" class="td-ring-fill" id="tdRingDone"/>
+            </svg>
+            <span class="td-stat-num" id="tdDoneCount">0</span>
+          </div>
+          <p class="mono td-stat-label">DONE</p>
+        </article>
+        <article class="td-stat-card td-stat-pending">
+          <div class="td-stat-ring">
+            <svg viewBox="0 0 36 36" class="td-ring-svg">
+              <circle cx="18" cy="18" r="15.9" class="td-ring-bg"/>
+              <circle cx="18" cy="18" r="15.9" class="td-ring-fill" id="tdRingPending"/>
+            </svg>
+            <span class="td-stat-num" id="tdPendingCount">0</span>
+          </div>
+          <p class="mono td-stat-label">PENDING</p>
+        </article>
+        <article class="td-stat-card td-stat-date">
+          <div class="td-date-icon">&#128197;</div>
+          <h2 id="tdTodayDate" class="mono td-date-value">--</h2>
+          <p class="mono td-stat-label">TODAY</p>
+        </article>
+      </section>
+
+      <!-- ══════════ PROGRESS BAR ══════════ -->
+      <div class="td-progress-wrap glow-tile reveal">
+        <div class="td-progress-header">
+          <span class="mono">COMPLETION</span>
+          <span class="mono td-progress-pct" id="tdProgressPct">0%</span>
+        </div>
+        <div class="td-progress-track">
+          <div class="td-progress-bar" id="tdProgressBar"></div>
+        </div>
+      </div>
+
+      <!-- ══════════ ADD / EDIT TASK ══════════ -->
+      <section class="td-form-section glow-frame reveal">
+        <div class="td-section-header">
+          <h3><span class="td-section-icon">&#9998;</span> Add New Task</h3>
+          <button class="td-collapse-btn" id="tdToggleForm" title="Toggle form">&#9660;</button>
+        </div>
+        <div class="td-form-body" id="tdFormBody">
+          <div class="td-form-main">
+            <div class="todo-field td-field-wide">
+              <label class="mono" for="tdTaskInput">Task Name *</label>
+              <input type="text" id="tdTaskInput" placeholder="What needs to be done?" />
+            </div>
+          </div>
+          <div class="td-form-row">
+            <div class="todo-field">
+              <label class="mono" for="tdCategory">Category</label>
+              <select id="tdCategory">
+                <option value="General">General</option>
+                <option value="Work">Work</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Project">Project</option>
+                <option value="Personal">Personal</option>
+                <option value="Urgent">Urgent</option>
+              </select>
+            </div>
+            <div class="todo-field">
+              <label class="mono" for="tdPriority">Priority</label>
+              <select id="tdPriority">
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+            <div class="todo-field">
+              <label class="mono" for="tdDate">Due Date</label>
+              <input type="date" id="tdDate" />
+            </div>
+            <div class="todo-field">
+              <label class="mono" for="tdTime">Due Time</label>
+              <input type="time" id="tdTime" />
+            </div>
+            <div class="todo-field">
+              <label class="mono" for="tdAlarm">Alarm</label>
+              <select id="tdAlarm">
+                <option value="">No Alarm</option>
+                <option value="exact">At Due Time</option>
+                <option value="5">5 min before</option>
+                <option value="10">10 min before</option>
+                <option value="15">15 min before</option>
+                <option value="30">30 min before</option>
+                <option value="60">1 hour before</option>
+              </select>
+            </div>
+          </div>
+          <div class="todo-field">
+            <label class="mono" for="tdNotes">Notes</label>
+            <textarea id="tdNotes" rows="2" placeholder="Additional details..."></textarea>
+          </div>
+          <div class="td-form-actions">
+            <button class="btn td-btn-add" id="tdAddBtn">&#10010; Add Task</button>
+            <button class="btn ghost" id="tdClearForm">Clear</button>
+            <span id="tdFormStatus" class="mono todo-status"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ SEARCH & FILTERS ══════════ -->
+      <section class="td-filter-section glow-frame reveal">
+        <div class="td-search-bar">
+          <input type="text" id="tdSearch" placeholder="&#128269; Search tasks..." />
+        </div>
+        <div class="td-filter-pills">
+          <select id="tdFilterStatus">
+            <option value="all">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="done">Completed</option>
+          </select>
+          <select id="tdFilterPriority">
+            <option value="all">All Priority</option>
+            <option value="High">&#128308; High</option>
+            <option value="Medium">&#128992; Medium</option>
+            <option value="Low">&#128994; Low</option>
+          </select>
+          <select id="tdFilterCategory">
+            <option value="all">All Categories</option>
+            <option value="General">General</option>
+            <option value="Work">Work</option>
+            <option value="Meeting">Meeting</option>
+            <option value="Project">Project</option>
+            <option value="Personal">Personal</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+          <select id="tdSortBy">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="due">Due Date</option>
+            <option value="priority">Priority</option>
+            <option value="name">Name A-Z</option>
+          </select>
+        </div>
+        <div class="td-bulk-row">
+          <button class="btn ghost small" id="tdClearDone">&#10003; Clear Done</button>
+          <button class="btn ghost small danger" id="tdClearAll">&#128465; Clear All</button>
+        </div>
+      </section>
+
+      <!-- ══════════ TASK LIST ══════════ -->
+      <section class="td-list-section glow-frame reveal">
+        <div class="td-section-header">
+          <h3><span class="td-section-icon">&#128203;</span> Tasks</h3>
+          <span class="mono td-task-count" id="tdVisibleCount"></span>
+        </div>
+        <div id="tdTaskList" class="td-task-list"></div>
+        <div id="tdEmptyMsg" class="td-empty-state">
+          <div class="td-empty-icon">&#128640;</div>
+          <p class="mono">No tasks yet</p>
+          <p>Add your first task above to get started!</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">ALIENS PORTAL</div>
+      <div class="footer-divider"></div>
+      <p class="footer-tagline">Designed &amp; Built by <span>Vikas Nayak</span> · Aliens Company © 2026</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="aliens-meeting.html">Meeting</a>
+        <a href="todo.html">ToDo</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Alarm Sound (short beep) -->
+  <audio id="alarmSound" preload="auto">
+    <source src="data:audio/wav;base64,UklGRlYFAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YTIFAACAgICAgICAgICAgICAgICAgICAgP+AgH+A/4CAf3+AgICBf39/f4GBgH9/gIGBf39/gIGBf39/gIGBf39/gYGAf3+AgYF/f3+AgYB/f4CAgIB/gICAf4CAgIB/gICAgH+AgICAf4CAgIB/gICAgH+AgICBf4CAgIF/gICBgX+AgICBf4CAgIF/gICBgX+BgIGBf4GAgYF/gYCBgYCBgIGBgIGAgYGAgYGBgYGBgYGBgYGBgYKBgYKBgYKBgYKBgoKBgoKBgoKBgoKCgoKCgoKCgoKCgoKDgoKDgoODgoODg4ODg4ODg4ODhIODhIOEhISEhISEhISEhIWEhIWEhYWFhYWFhYWFhYaFhYaFhoaGhoaGhoaGh4aGh4aHh4eHh4eHh4eIh4eIh4iIiIiIiIiIiImIiImIiYmJiYmJiYmJiomJiomKioqKioqKioqLioqLiouLi4uLi4uLi4yLi4yLjIyMjIyMjP8A" type="audio/wav" />
+  </audio>
+
+  <script src="script.js" defer></script>
+  <script src="icons.js" defer></script>
+  <script src="todo.js" defer></script>
+</body>
+</html>
