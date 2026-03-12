@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aliens Site | Audio Recorder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo+2:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <aside class="quick-sidebar glow-frame mono" aria-label="Sidebar Menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="aliens-meeting.html">Meeting</a>
+    <a href="todo.html">ToDo</a>
+    <a class="active" href="recorder.html">Recorder</a>
+  </aside>
+
+  <div class="site-wrap">
+    <header class="site-header glow-frame">
+      <div class="brand">
+        <img class="brand-logo" src="assets/characters/aliens-badge.png" alt="Aliens Certified badge" />
+        <div>
+          <p class="mono">ALIENS CERTIFIED</p>
+          <h1 class="brand-title-gradient">AUDIO RECORDER &amp; TRANSCRIPTION</h1>
+        </div>
+      </div>
+      <nav class="main-nav mono">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Characters</a>
+        <a href="contact.html">Contact</a>
+        <a href="aliens-meeting.html">Meeting</a>
+        <a href="todo.html">ToDo</a>
+        <a class="active" href="recorder.html">Recorder</a>
+      </nav>
+    </header>
+
+    <main class="layout one-col">
+
+      <!-- ══════════ STATS DASHBOARD ══════════ -->
+      <section class="rc-stats-dash reveal">
+        <article class="rc-stat-card rc-stat-total">
+          <div class="rc-stat-icon">🎙️</div>
+          <div class="rc-stat-info">
+            <span class="rc-stat-num mono" id="rcTotalCount">0</span>
+            <span class="rc-stat-label">RECORDINGS</span>
+          </div>
+        </article>
+        <article class="rc-stat-card rc-stat-duration">
+          <div class="rc-stat-icon">⏱️</div>
+          <div class="rc-stat-info">
+            <span class="rc-stat-num mono" id="rcTotalDuration">0m 0s</span>
+            <span class="rc-stat-label">TOTAL TIME</span>
+          </div>
+        </article>
+        <article class="rc-stat-card rc-stat-today">
+          <div class="rc-stat-icon">📝</div>
+          <div class="rc-stat-info">
+            <span class="rc-stat-num mono" id="rcTodayCount">0</span>
+            <span class="rc-stat-label">TODAY</span>
+          </div>
+        </article>
+        <article class="rc-stat-card rc-stat-date">
+          <div class="rc-stat-icon">📅</div>
+          <div class="rc-stat-info">
+            <span class="rc-stat-num mono" id="rcTodayDate">--</span>
+            <span class="rc-stat-label">DATE</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- ══════════ RECORDING STUDIO ══════════ -->
+      <section class="rc-studio glow-frame reveal">
+        <div class="rc-section-header">
+          <h3><span class="rc-section-icon">🎙️</span> Recording Studio</h3>
+          <div class="rc-lang-wrap">
+            <label class="mono" for="rcLang">Language</label>
+            <select id="rcLang" class="rc-lang-select">
+              <option value="hi-IN">Hindi → Hinglish</option>
+              <option value="en-IN">English (India)</option>
+              <option value="en-US">English (US)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="rc-studio-grid">
+          <!-- Left: Controls & Waveform -->
+          <div class="rc-controls-area">
+            <div class="rc-timer-display mono" id="rcTimer">00:00:00</div>
+
+            <div class="rc-waveform-wrap">
+              <canvas id="rcWaveform" class="rc-waveform"></canvas>
+              <div class="rc-waveform-overlay" id="rcWaveformIdle">
+                <span>🎤</span>
+                <p class="mono">Click record to start</p>
+              </div>
+            </div>
+
+            <div class="rc-control-btns">
+              <button class="rc-btn rc-btn-pause" id="rcBtnPause" title="Pause" disabled>⏸</button>
+              <button class="rc-btn rc-btn-record" id="rcBtnRecord" title="Start Recording">
+                <span class="rc-btn-inner"></span>
+              </button>
+              <button class="rc-btn rc-btn-stop" id="rcBtnStop" title="Stop" disabled>⏹</button>
+            </div>
+
+            <div class="rc-status mono" id="rcStatus">Ready to record</div>
+          </div>
+
+          <!-- Right: Live Transcript -->
+          <div class="rc-transcript-panel">
+            <div class="rc-transcript-header">
+              <h4 class="mono">LIVE TRANSCRIPT</h4>
+              <span class="rc-transcript-badge mono" id="rcTranscriptBadge">IDLE</span>
+            </div>
+            <div class="rc-transcript-content" id="rcLiveTranscript">
+              <div class="rc-transcript-placeholder">
+                <span>📝</span>
+                <p>Live transcription will appear here as you speak...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ RESULT PANEL ══════════ -->
+      <section class="rc-result-section glow-frame reveal" id="rcResultSection" style="display:none;">
+        <div class="rc-section-header">
+          <h3><span class="rc-section-icon">📋</span> Recording Result</h3>
+        </div>
+        <div class="rc-result-grid">
+          <div class="rc-audio-wrap">
+            <h4 class="mono">AUDIO PLAYBACK</h4>
+            <audio id="rcAudioPlayer" controls class="rc-audio-player"></audio>
+            <div class="rc-audio-meta mono" id="rcAudioMeta"></div>
+          </div>
+          <div class="rc-transcript-result">
+            <h4 class="mono">HINGLISH TRANSCRIPT</h4>
+            <div class="rc-final-transcript" id="rcFinalTranscript"></div>
+          </div>
+        </div>
+        <div class="rc-result-actions">
+          <button class="btn" id="rcCopyBtn">📋 Copy Text</button>
+          <button class="btn ghost" id="rcDownloadBtn">💾 Download Transcript</button>
+          <span class="mono rc-copy-status" id="rcCopyStatus"></span>
+        </div>
+      </section>
+
+      <!-- ══════════ SAVE RECORDING ══════════ -->
+      <section class="rc-save-section glow-frame reveal" id="rcSaveSection" style="display:none;">
+        <div class="rc-section-header">
+          <h3><span class="rc-section-icon">💾</span> Save Recording</h3>
+        </div>
+        <div class="rc-save-form">
+          <div class="rc-save-row">
+            <div class="todo-field">
+              <label class="mono" for="rcClassName">Class / Lecture Name *</label>
+              <input type="text" id="rcClassName" placeholder="e.g. Maths Lecture, Physics Class..." />
+            </div>
+            <div class="todo-field">
+              <label class="mono" for="rcNotes">Notes (Optional)</label>
+              <input type="text" id="rcNotes" placeholder="Any additional notes..." />
+            </div>
+          </div>
+          <div class="rc-save-actions">
+            <button class="btn rc-btn-save" id="rcSaveBtn">💾 Save Recording</button>
+            <button class="btn ghost" id="rcDiscardBtn">🗑️ Discard</button>
+            <span class="mono rc-save-status" id="rcSaveStatus"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ SEARCH & SAVED RECORDINGS ══════════ -->
+      <section class="rc-search-section glow-frame reveal">
+        <div class="rc-section-header">
+          <h3><span class="rc-section-icon">🔍</span> Saved Recordings</h3>
+          <span class="mono rc-recording-count" id="rcRecordingCount">0 recordings</span>
+        </div>
+        <div class="rc-search-bar">
+          <input type="text" id="rcSearch" placeholder="🔍 Search by class name or date..." />
+        </div>
+      </section>
+
+      <section class="rc-recordings-list glow-frame reveal" id="rcRecordingsWrap">
+        <div id="rcRecordingsList" class="rc-list"></div>
+        <div id="rcEmptyMsg" class="rc-empty-state">
+          <div class="rc-empty-icon">🎙️</div>
+          <p class="mono">No recordings yet</p>
+          <p>Record your first lecture to get started!</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">ALIENS PORTAL</div>
+      <div class="footer-divider"></div>
+      <p class="footer-tagline">Designed &amp; Built by <span>Vikas Nayak</span> &middot; Aliens Company &copy; 2026</p>
+      <p class="footer-sub mono">Futuristic Multi-Page Dashboard &middot; Liquid Glass UI &middot; Real-Time Systems</p>
+      <div class="footer-version mono">v2.6.0 &middot; Build #12340</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="aliens-meeting.html">Meeting</a>
+        <a href="todo.html">ToDo</a>
+        <a href="recorder.html">Recorder</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js" defer></script>
+  <script src="icons.js" defer></script>
+  <script src="recorder.js" defer></script>
+</body>
+</html>

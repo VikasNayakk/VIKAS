@@ -25,7 +25,7 @@ ASK_ONTIME=YES
 GENERATE_ALLJOIN=YES
 GENERATE_LATE=YES
 GENERATE_CSV=YES
-DATE=3/10/2026
+DATE=3/11/2026
 
 
 ==================================================
@@ -58,57 +58,13 @@ Statu = 1
 
 List Of All-Join:
 
-Vikas Nayak 
-A"dii Sunlay
-Gurpreet Singh 2
-Rajani Rani
-Tarachand
-Sunil kori
-Gagan Chouhan
-Jaspal Byavat
-Harish Jaypal
-Abhinav Bishnoi
-Arnav Bishnoi
-Prem Kumar
-Himanshu Nayak
-RAJESH NAYAK
-Poonam Kumari
-Dinesh kumar
-Sahil Sudiya
-khushbu
-Sumit
-SH|VAM-B|SHNOI
-Sandeep Barupal
-Rahul
-Pooja Sudiya
-Anita Nayak
-Harpreet Singh
-Dinesh kumar
+(Meeting 3/11/2026 — Yahan present members paste karo)
 
 
 
 List Of Time Par Join:
 
-
-Vikas Nayak
-A"dii Sunlay 
-Gurpreet Singh 2
-Rajani Rani
-Tarachand 
-Sunil kori
-Gagan Chouhan
-Jaspal Byavat
-Harish Jaypal
-Abhinav Bishnoi
-Arnav Bishnoi
-Gagan kumar
-Prem Kumar
-Himanshu Nayak
-RAJESH NAYAK
-Poonam Kumari
-Harpreet Singh
-Dinesh kumar
-SH|VAM-B|SHNOI
+(Yahan time par join hone wale members paste karo)
 
 ==================================================
 TRIGGER BLOCK 4

@@ -10,44 +10,50 @@
 
   /* ---------- DOM refs ---------- */
   const $ = (id) => document.getElementById(id);
-  const el = {
-    taskInput: $('tdTaskInput'),
-    category: $('tdCategory'),
-    priority: $('tdPriority'),
-    date: $('tdDate'),
-    time: $('tdTime'),
-    alarm: $('tdAlarm'),
-    notes: $('tdNotes'),
-    addBtn: $('tdAddBtn'),
-    clearForm: $('tdClearForm'),
-    formStatus: $('tdFormStatus'),
-    search: $('tdSearch'),
-    filterStatus: $('tdFilterStatus'),
-    filterPriority: $('tdFilterPriority'),
-    filterCategory: $('tdFilterCategory'),
-    sortBy: $('tdSortBy'),
-    clearDone: $('tdClearDone'),
-    clearAll: $('tdClearAll'),
-    taskList: $('tdTaskList'),
-    emptyMsg: $('tdEmptyMsg'),
-    totalCount: $('tdTotalCount'),
-    doneCount: $('tdDoneCount'),
-    pendingCount: $('tdPendingCount'),
-    todayDate: $('tdTodayDate'),
-    alarmSound: $('alarmSound'),
-    progressBar: $('tdProgressBar'),
-    progressPct: $('tdProgressPct'),
-    ringTotal: $('tdRingTotal'),
-    ringDone: $('tdRingDone'),
-    ringPending: $('tdRingPending'),
-    toggleForm: $('tdToggleForm'),
-    formBody: $('tdFormBody'),
-    visibleCount: $('tdVisibleCount'),
-    alarmBanner: $('tdAlarmBanner'),
-  };
+  let el = {};
+
+  function queryEls() {
+    el = {
+      taskInput: $('tdTaskInput'),
+      category: $('tdCategory'),
+      priority: $('tdPriority'),
+      date: $('tdDate'),
+      time: $('tdTime'),
+      alarm: $('tdAlarm'),
+      notes: $('tdNotes'),
+      addBtn: $('tdAddBtn'),
+      clearForm: $('tdClearForm'),
+      formStatus: $('tdFormStatus'),
+      search: $('tdSearch'),
+      filterStatus: $('tdFilterStatus'),
+      filterPriority: $('tdFilterPriority'),
+      filterCategory: $('tdFilterCategory'),
+      sortBy: $('tdSortBy'),
+      clearDone: $('tdClearDone'),
+      clearAll: $('tdClearAll'),
+      taskList: $('tdTaskList'),
+      emptyMsg: $('tdEmptyMsg'),
+      totalCount: $('tdTotalCount'),
+      doneCount: $('tdDoneCount'),
+      pendingCount: $('tdPendingCount'),
+      todayDate: $('tdTodayDate'),
+      alarmSound: $('alarmSound'),
+      progressBar: $('tdProgressBar'),
+      progressPct: $('tdProgressPct'),
+      ringTotal: $('tdRingTotal'),
+      ringDone: $('tdRingDone'),
+      ringPending: $('tdRingPending'),
+      toggleForm: $('tdToggleForm'),
+      formBody: $('tdFormBody'),
+      visibleCount: $('tdVisibleCount'),
+      alarmBanner: $('tdAlarmBanner'),
+    };
+  }
+  queryEls();
 
   /* ---------- Init ---------- */
   function init() {
+    queryEls();
     if (!el.taskInput) return; // not on todo page
     loadTasks();
     setTodayDate();
@@ -448,4 +454,7 @@
   } else {
     init();
   }
+
+  /* Expose for SPA re-init */
+  window._todoInit = init;
 })();

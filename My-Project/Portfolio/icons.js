@@ -74,6 +74,7 @@
     link:  '<path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>',
     download:'<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/>',
     filter: '<path d="M22 3H2l8 9.46V19l4 2v-8.54z"/>',
+    mic:    '<path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><path d="M12 19v4"/><path d="M8 23h8"/>',
   };
 
 
@@ -89,10 +90,12 @@
     'contact':    'envelope',
     'meeting':    'people',
     'todo':       'checklist',
+    'recorder':   'mic',
   };
 
   function injectNavIcons(selector, iconCls) {
     document.querySelectorAll(selector).forEach(function (a) {
+      if (a.querySelector('.nav-icon')) return;          // already injected
       var txt = a.textContent.trim().toLowerCase();
       var key = navMap[txt];
       if (key && P[key]) {
@@ -244,5 +247,76 @@
   if (respHeader && respHeader.textContent.indexOf('Responsibilities') !== -1) {
     respHeader.innerHTML = svg(P.briefcase, 'heading-icon') + ' ' + respHeader.innerHTML;
   }
+
+  /* ============================================================
+     Expose for SPA re-init
+     ============================================================ */
+  window.reinjectIcons = function () {
+    injectNavIcons('.quick-sidebar a', 'nav-icon');
+    injectNavIcons('.main-nav a', 'nav-icon nav-icon-sm');
+
+    document.querySelectorAll('.resp-card h4').forEach(function (h4) {
+      if (h4.querySelector('.card-icon')) return;
+      var text = h4.textContent;
+      for (var emoji in emojiMap) {
+        if (text.indexOf(emoji) !== -1) {
+          var iconKey = emojiMap[emoji];
+          h4.innerHTML = svg(P[iconKey], 'card-icon') + ' ' + text.replace(emoji, '').trim();
+          break;
+        }
+      }
+    });
+
+    document.querySelectorAll('.meeting-stat').forEach(function (stat) {
+      if (stat.querySelector('.stat-icon')) return;
+      var label = stat.querySelector('p');
+      if (!label) return;
+      var key = label.textContent.trim().toLowerCase();
+      var iconName = statIconMap[key];
+      if (iconName && P[iconName]) label.insertAdjacentHTML('beforebegin', svg(P[iconName], 'stat-icon'));
+    });
+
+    for (var id in btnIdMap) {
+      var btn = document.getElementById(id);
+      if (btn && P[btnIdMap[id]] && !btn.querySelector('.btn-icon')) {
+        btn.innerHTML = svg(P[btnIdMap[id]], 'btn-icon') + ' ' + btn.innerHTML;
+      }
+    }
+
+    document.querySelectorAll('.contact-form .btn').forEach(function (btn) {
+      if (btn.querySelector('.btn-icon')) return;
+      if (btn.textContent.trim().toLowerCase().indexOf('send') !== -1) {
+        btn.innerHTML = svg(P.send, 'btn-icon') + ' ' + btn.innerHTML;
+      }
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(function (tab) {
+      if (tab.querySelector('.btn-icon')) return;
+      var txt = tab.textContent.trim().toLowerCase();
+      var key = txt === 'records' ? 'list' : txt === 'table new' ? 'table' : null;
+      if (key && P[key]) tab.innerHTML = svg(P[key], 'btn-icon') + ' ' + tab.innerHTML;
+    });
+
+    document.querySelectorAll('input[type="search"], #tdSearch').forEach(function (input) {
+      if (input.parentElement.classList.contains('search-icon-wrap')) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'search-icon-wrap';
+      input.parentNode.insertBefore(wrap, input);
+      wrap.appendChild(input);
+      wrap.insertAdjacentHTML('afterbegin', svg(P.search, 'search-icon'));
+    });
+
+    document.querySelectorAll('.about-grid h3').forEach(function (h3) {
+      if (h3.querySelector('.heading-icon')) return;
+      var txt = h3.textContent.trim().toLowerCase();
+      var key = aboutMap[txt];
+      if (key && P[key]) h3.innerHTML = svg(P[key], 'heading-icon') + ' ' + h3.innerHTML;
+    });
+
+    var rh = document.querySelector('.resp-section header h3');
+    if (rh && !rh.querySelector('.heading-icon') && rh.textContent.indexOf('Responsibilities') !== -1) {
+      rh.innerHTML = svg(P.briefcase, 'heading-icon') + ' ' + rh.innerHTML;
+    }
+  };
 
 })();

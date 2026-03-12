@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <canvas id="starfield" class="starfield-canvas" aria-hidden="true"></canvas>
   <div class="ambient"></div>
   <div class="noise" aria-hidden="true"></div>
 
@@ -21,6 +22,7 @@
     <a href="contact.html">Contact</a>
     <a href="aliens-meeting.html">Meeting</a>
     <a href="todo.html">ToDo</a>
+    <a href="recorder.html">Recorder</a>
   </aside>
 
   <div class="site-wrap">
@@ -29,7 +31,8 @@
         <img class="brand-logo" src="assets/characters/aliens-badge.png" alt="Aliens Certified badge" />
         <div>
           <p class="mono">ALIENS CERTIFIED</p>
-          <h1>VIKAS MULTI-SITE PORTAL</h1>
+          <h1 class="brand-title-gradient">VIKAS MULTI-SITE PORTAL</h1>
+          <div class="header-clock mono" id="headerClock"></div>
         </div>
       </div>
       <nav class="main-nav mono">
@@ -40,8 +43,46 @@
         <a href="contact.html">Contact</a>
         <a href="aliens-meeting.html">Meeting</a>
         <a href="todo.html">ToDo</a>
+        <a href="recorder.html">Recorder</a>
       </nav>
     </header>
+
+    <!-- ══════════ NEWS TICKER ══════════ -->
+    <div class="ticker-bar">
+      <div class="ticker-track">
+        <span class="ticker-item">&#128640; 8 Modules Live</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#9889; Recorder Module New</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#127912; Liquid Glass UI Active</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128101; Meeting Records Synced</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128202; Attendance System Online</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#129302; AnilCyborg Connected</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128039; Venom Testing Active</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128187; All Systems Operational</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128640; 8 Modules Live</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#9889; Recorder Module New</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#127912; Liquid Glass UI Active</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128101; Meeting Records Synced</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128202; Attendance System Online</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#129302; AnilCyborg Connected</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128039; Venom Testing Active</span>
+        <span class="ticker-sep">·</span>
+        <span class="ticker-item">&#128187; All Systems Operational</span>
+      </div>
+    </div>
 
     <main class="layout">
       <aside class="char-rail glow-frame" data-rail>
@@ -55,13 +96,24 @@
       </aside>
 
       <section class="content">
+
+        <!-- ══════════ HERO ══════════ -->
         <section class="hero glow-tile" data-float>
           <div class="hero-split">
             <div>
-              <p class="chip">NEW ERA UI</p>
+              <div class="hero-top-row">
+                <p class="chip">NEW ERA UI</p>
+                <span class="hero-status-badge"><span class="hero-status-dot"></span> SYSTEM ONLINE</span>
+              </div>
               <h2>Aliens Style Full Website</h2>
               <p class="hero-tagline">Built by <span>Vikas Nayak</span> · Aliens Commander</p>
-              <p>Single page se upgrade karke ab complete multi-page site ready hai with animated side characters, futuristic cards, and neon command visuals.</p>
+              <p>Complete multi-page futuristic portal with animated characters, neon command visuals, liquid glass UI, and real-time data systems. Everything is built from scratch.</p>
+              <div class="hero-features-row">
+                <span class="hero-feat">&#9889; 8 Pages</span>
+                <span class="hero-feat">&#127912; Liquid Glass</span>
+                <span class="hero-feat">&#128640; Real-Time Data</span>
+                <span class="hero-feat">&#128187; Full Responsive</span>
+              </div>
               <div class="hero-cta">
                 <a href="projects.html" class="btn">Explore Projects</a>
                 <a href="gallery.html" class="btn ghost">View Characters</a>
@@ -78,43 +130,99 @@
           <article class="home-stat-card hsc-blue">
             <div class="hsc-icon">&#128640;</div>
             <div class="hsc-info">
-              <span class="hsc-num mono">7</span>
+              <span class="hsc-num mono" data-count="8">0</span>
               <span class="hsc-label">Pages Built</span>
             </div>
           </article>
           <article class="home-stat-card hsc-green">
             <div class="hsc-icon">&#9889;</div>
             <div class="hsc-info">
-              <span class="hsc-num mono">12340h</span>
+              <span class="hsc-num mono" data-count="12340" data-suffix="h">0</span>
               <span class="hsc-label">Build Hours</span>
             </div>
           </article>
           <article class="home-stat-card hsc-purple">
             <div class="hsc-icon">&#127912;</div>
             <div class="hsc-info">
-              <span class="hsc-num mono">10+</span>
+              <span class="hsc-num mono" data-count="10" data-prefix="" data-suffix="+">0</span>
               <span class="hsc-label">Roles Active</span>
             </div>
           </article>
           <article class="home-stat-card hsc-orange">
             <div class="hsc-icon">&#128161;</div>
             <div class="hsc-info">
-              <span class="hsc-num mono">100%</span>
+              <span class="hsc-num mono" data-count="100" data-suffix="%">0</span>
               <span class="hsc-label">Aliens Theme</span>
             </div>
           </article>
         </section>
 
+        <!-- ══════════ QUICK ACCESS GRID ══════════ -->
+        <section class="qa-section reveal">
+          <header class="qa-header">
+            <h3>&#9889; Quick Access</h3>
+            <span class="qa-badge mono">8 MODULES</span>
+          </header>
+          <div class="qa-grid">
+            <a href="index.html" class="qa-card qa-active">
+              <div class="qa-icon">&#127968;</div>
+              <span class="qa-name">Home</span>
+              <span class="qa-desc">Dashboard</span>
+            </a>
+            <a href="about.html" class="qa-card">
+              <div class="qa-icon">&#128100;</div>
+              <span class="qa-name">About</span>
+              <span class="qa-desc">Profile</span>
+            </a>
+            <a href="projects.html" class="qa-card">
+              <div class="qa-icon">&#128736;</div>
+              <span class="qa-name">Projects</span>
+              <span class="qa-desc">Portfolio</span>
+            </a>
+            <a href="gallery.html" class="qa-card">
+              <div class="qa-icon">&#127912;</div>
+              <span class="qa-name">Gallery</span>
+              <span class="qa-desc">Characters</span>
+            </a>
+            <a href="contact.html" class="qa-card">
+              <div class="qa-icon">&#128231;</div>
+              <span class="qa-name">Contact</span>
+              <span class="qa-desc">Reach Out</span>
+            </a>
+            <a href="aliens-meeting.html" class="qa-card">
+              <div class="qa-icon">&#128101;</div>
+              <span class="qa-name">Meeting</span>
+              <span class="qa-desc">Records</span>
+            </a>
+            <a href="todo.html" class="qa-card">
+              <div class="qa-icon">&#9989;</div>
+              <span class="qa-name">ToDo</span>
+              <span class="qa-desc">Tasks</span>
+            </a>
+            <a href="recorder.html" class="qa-card">
+              <div class="qa-icon">&#127908;</div>
+              <span class="qa-name">Recorder</span>
+              <span class="qa-desc">Audio</span>
+            </a>
+          </div>
+        </section>
+
         <!-- ══════════ MISSION FEED ══════════ -->
         <section class="home-grid reveal">
           <article class="glow-tile panel home-mission">
-            <h3>&#127919; Mission Feed</h3>
+            <div class="hm-header">
+              <h3>&#127919; Mission Feed</h3>
+              <span class="hm-live-badge mono"><span class="hm-live-dot"></span> LIVE</span>
+            </div>
             <ul class="mono clean-list">
               <li><span class="mission-dot mission-dot-live"></span> UI Engine Upgrade</li>
               <li><span class="mission-dot mission-dot-done"></span> Character Animation Track</li>
               <li><span class="mission-dot mission-dot-live"></span> Responsive Site Deployment</li>
               <li><span class="mission-dot mission-dot-done"></span> Multi-Page Architecture</li>
               <li><span class="mission-dot mission-dot-live"></span> Neon Command System</li>
+              <li><span class="mission-dot mission-dot-done"></span> Audio Recorder Module</li>
+              <li><span class="mission-dot mission-dot-live"></span> Hinglish Transcription AI</li>
+              <li><span class="mission-dot mission-dot-done"></span> Meeting Records Portal</li>
             </ul>
           </article>
           <article class="glow-tile panel home-deploy">
@@ -130,17 +238,120 @@
                 <circle cx="18" cy="18" r="15.9" class="deploy-ring-bg"/>
                 <circle cx="18" cy="18" r="15.9" class="deploy-ring-fill"/>
               </svg>
-              <span class="deploy-ring-pct mono">86%</span>
+              <span class="deploy-ring-pct mono">88%</span>
             </div>
             <p class="mono deploy-label">Deployment Progress</p>
-            <div class="progress-wrap"><div class="progress-line" style="width:86%;"></div></div>
+            <div class="progress-wrap"><div class="progress-line" style="width:88%;"></div></div>
+            <div class="deploy-stats-row mono">
+              <span>&#9989; 7/8 modules live</span>
+              <span>&#128337; Last deploy: Today</span>
+            </div>
           </article>
+        </section>
+
+        <!-- ══════════ TECH STACK ══════════ -->
+        <section class="tech-section glow-tile reveal">
+          <header class="tech-header">
+            <h3>&#128295; Tech Stack &amp; Tools</h3>
+            <span class="tech-count mono">12 TOOLS</span>
+          </header>
+          <div class="tech-grid">
+            <div class="tech-item"><span class="tech-logo">&#128421;</span><span class="tech-name">HTML5</span></div>
+            <div class="tech-item"><span class="tech-logo">&#127912;</span><span class="tech-name">CSS3</span></div>
+            <div class="tech-item"><span class="tech-logo">&#9889;</span><span class="tech-name">JavaScript</span></div>
+            <div class="tech-item"><span class="tech-logo">&#128640;</span><span class="tech-name">Web APIs</span></div>
+            <div class="tech-item"><span class="tech-logo">&#127899;</span><span class="tech-name">IndexedDB</span></div>
+            <div class="tech-item"><span class="tech-logo">&#127908;</span><span class="tech-name">Speech API</span></div>
+            <div class="tech-item"><span class="tech-logo">&#128187;</span><span class="tech-name">VS Code</span></div>
+            <div class="tech-item"><span class="tech-logo">&#128025;</span><span class="tech-name">GitHub Copilot</span></div>
+            <div class="tech-item"><span class="tech-logo">&#128202;</span><span class="tech-name">Excel</span></div>
+            <div class="tech-item"><span class="tech-logo">&#127760;</span><span class="tech-name">Web Scraping</span></div>
+            <div class="tech-item"><span class="tech-logo">&#129302;</span><span class="tech-name">AnilCyborg</span></div>
+            <div class="tech-item"><span class="tech-logo">&#128039;</span><span class="tech-name">Venom</span></div>
+          </div>
+        </section>
+
+        <!-- ══════════ ACTIVITY TIMELINE ══════════ -->
+        <section class="timeline-section glow-tile reveal">
+          <header class="timeline-header">
+            <h3>&#128197; Recent Activity</h3>
+            <span class="timeline-badge mono">MARCH 2026</span>
+          </header>
+          <div class="timeline-track">
+            <div class="tl-item">
+              <div class="tl-dot tl-dot-cyan"></div>
+              <div class="tl-content">
+                <span class="tl-date mono">12 Mar</span>
+                <span class="tl-text">Audio Recorder &amp; Hinglish Transcription module launched</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot tl-dot-green"></div>
+              <div class="tl-content">
+                <span class="tl-date mono">11 Mar</span>
+                <span class="tl-text">Meeting notes &amp; topic system integrated</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot tl-dot-purple"></div>
+              <div class="tl-content">
+                <span class="tl-date mono">10 Mar</span>
+                <span class="tl-text">Live member counter &amp; table generator built</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot tl-dot-orange"></div>
+              <div class="tl-content">
+                <span class="tl-date mono">09 Mar</span>
+                <span class="tl-text">ToDo Task Manager + alarm system deployed</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot tl-dot-red"></div>
+              <div class="tl-content">
+                <span class="tl-date mono">06 Mar</span>
+                <span class="tl-text">Attendance absent tracking &amp; 5-minute late system</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot tl-dot-cyan"></div>
+              <div class="tl-content">
+                <span class="tl-date mono">03 Mar</span>
+                <span class="tl-text">Full portfolio site created with Aliens theme</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════ COMMAND LOG ══════════ -->
+        <section class="cmd-section glow-tile reveal">
+          <header class="cmd-header">
+            <div class="cmd-dots">
+              <span class="cmd-dot cmd-dot-r"></span>
+              <span class="cmd-dot cmd-dot-y"></span>
+              <span class="cmd-dot cmd-dot-g"></span>
+            </div>
+            <span class="cmd-title mono">ALIENS TERMINAL</span>
+            <span class="cmd-ver mono">v2.6.0</span>
+          </header>
+          <div class="cmd-body mono" id="cmdBody">
+            <div class="cmd-line"><span class="cmd-prompt">aliens@hq:~$</span> <span class="cmd-text">system --status</span></div>
+            <div class="cmd-output">&#9989; All 8 modules operational — uptime 99.9%</div>
+            <div class="cmd-line"><span class="cmd-prompt">aliens@hq:~$</span> <span class="cmd-text">deploy --latest</span></div>
+            <div class="cmd-output">&#128640; Deployed recorder.html + recorder.js — 12 Mar 2026</div>
+            <div class="cmd-line"><span class="cmd-prompt">aliens@hq:~$</span> <span class="cmd-text">build --stats</span></div>
+            <div class="cmd-output">&#128202; 12,340+ build hours | 8 pages | 10+ tools | 100% Aliens theme</div>
+            <div class="cmd-line"><span class="cmd-prompt">aliens@hq:~$</span> <span class="cmd-text">scan --security</span></div>
+            <div class="cmd-output">&#128274; No vulnerabilities detected. Glass shields holding.</div>
+            <div class="cmd-line"><span class="cmd-prompt">aliens@hq:~$</span> <span class="cmd-text cmd-blink">_</span></div>
+          </div>
         </section>
 
         <section class="resp-section glow-tile reveal">
           <header class="resp-header">
             <h2>🧑‍💼 My Responsibilities</h2>
             <p class="mono">Daily work areas &amp; ownership at Aliens Company</p>
+            <span class="resp-count-badge mono" id="respCountBadge">10 AREAS</span>
           </header>
           <div class="resp-grid">
 
@@ -255,9 +466,11 @@
     </main>
 
     <footer class="site-footer">
-      <div class="footer-brand">ALIENS PORTAL</div>
+      <div class="footer-brand">&#128125; ALIENS PORTAL</div>
       <div class="footer-divider"></div>
       <p class="footer-tagline">Designed &amp; Built by <span>Vikas Nayak</span> · Aliens Company &copy; 2026</p>
+      <p class="footer-sub mono">Futuristic Multi-Page Dashboard · Liquid Glass UI · Real-Time Systems</p>
+      <div class="footer-version mono">v2.6.0 · Build #12340</div>
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -266,9 +479,12 @@
         <a href="contact.html">Contact</a>
         <a href="aliens-meeting.html">Meeting</a>
         <a href="todo.html">ToDo</a>
+        <a href="recorder.html">Recorder</a>
       </div>
     </footer>
   </div>
+
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">&#9650;</button>
 
   <script src="script.js" defer></script>
   <script src="icons.js" defer></script>
