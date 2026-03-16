@@ -1,29 +1,74 @@
-GitHub. CLI Connection
- 
-ssh-keygen -t rsa -b 4096 -C "ianilcyborg@gmail.com"           // Generate Key on Server
-type $env:Adiisunlay\.ssh\id_rsa.pub.                   //. notepad $env:Adiisunlay\.ssh\id_rsa.pub.   // Copy Key and After This Paste Key to github Account
-ssh -T git@github.com                               // Test Connection on Server
- 
- 
- 
- 
- 
- 
-# change path agar ssh se lena ho ya url se yeh url se ssh me set karta hai
- 
+# ================================
+# GitHub CLI Complete Workflow
+# ================================
+
+
+# Generate SSH Key on Server
+ssh-keygen -t rsa -b 4096 -C "adiisunlay@gmail.com"
+
+
+# Show Public Key and Copy it
+type %USERPROFILE%\.ssh\id_rsa.pub
+
+
+# Open Public Key in Notepad (Copy and Paste to GitHub → SSH Keys)
+notepad %USERPROFILE%\.ssh\id_rsa.pub
+
+
+# Test SSH Connection with GitHub
+ssh -T git@github.com
+
+
+
+# ======================================
+# Change Repo Path (HTTPS → SSH)
+# ======================================
+
 git remote set-url origin git@github.com:Aliens-Company/Course_ACLE.git
- 
- 
-# git Clone Repo on Server ( CMD )
-cd C:/Aliens/Course_ACLE && git clone -b main git@github.com:Aliens-Company/Course_ACLE.git
- 
-#WebOS & System Updater == PULLLLLLL ( CMD )
-cd C:/Aliens/Course_ACLE && dir && git pull origin main
- 
- 
-#WebOS & System Updater == PUSHHH  ( CMD )
-cd C:/Aliens/Course_ACLE && git add . && git commit -m " By HimanshuNayak" && git push origin main
- 
- 
- 
- 
+
+
+
+# ======================================
+# Git Clone Repo on Server (CMD)
+# ======================================
+
+cd C:\Aliens && git clone -b main git@github.com:Aliens-Company/Course_ACLE.git
+
+
+
+# ======================================
+# WebOS & System Updater == PULL (CMD)
+# ======================================
+
+cd C:\Aliens\Course_ACLE && dir && git pull origin main
+
+
+
+# ======================================
+# WebOS & System Updater == PUSH (CMD)
+# ======================================
+
+cd C:\Aliens\Course_ACLE && git add . && git commit -m "By VikasNayak" && git push origin main
+
+
+
+# ======================================
+# Check Repo Status
+# ======================================
+
+cd C:\Aliens\Course_ACLE && git status
+
+
+
+# ======================================
+# Check Remote Repo Connection
+# ======================================
+
+cd C:\Aliens\Course_ACLE && git remote -v
+
+
+
+
+
+
+dhgf hff ue fbanfhejagfbndfhjf
