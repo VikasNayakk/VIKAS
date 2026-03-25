@@ -1,0 +1,111 @@
+"""
+AI-Agent-OS Configuration
+
+Copy this to config.yaml and customize for your system
+"""
+
+system:
+  version: "1.0.0"
+  debug: false
+  max_retries: 3
+  timeout: 30
+  log_level: "INFO"
+
+llm:
+  # Provider: "openai" or "local"
+  provider: "openai"
+  
+  # OpenAI settings
+  openai_api_key: "${OPENAI_API_KEY}"  # Set via environment variable
+  openai_model: "gpt-4"
+  
+  # Local LLM settings
+  local_model: "mistral"  # ollama model name
+  
+  # General settings
+  temperature: 0.7
+  max_tokens: 2000
+  enable_cache: true
+  cache_ttl: 3600
+
+vision:
+  # Screen capture settings
+  capture_interval: 0.5
+  capture_quality: 100
+  
+  # Vision cache
+  cache_ttl: 5
+  cache_max_size: 100
+  
+  # OCR settings
+  use_ocr: true
+  ocr_language: "eng"
+
+memory:
+  # Cache settings (L1)
+  cache_ttl: 300
+  cache_max_size: 1000
+  
+  # Vector DB settings (L3)
+  vector_model: "all-MiniLM-L6-v2"
+  vector_cache_size: 1000
+
+security:
+  # Sandbox settings
+  sandbox_enabled: true
+  sandbox_timeout: 5.0
+  
+  # Permission checks
+  permission_checks: true
+  
+  # Audit logging
+  audit_logging: true
+  audit_log_file: "./data/logs/audit.log"
+
+agent:
+  # Circuit breaker settings
+  circuit_breaker_threshold: 5
+  circuit_breaker_timeout: 60
+  
+  # Agent settings
+  executor_timeout: 30
+  planner_timeout: 10
+  monitor_interval: 1
+
+ui:
+  # UI settings
+  show_overlay: true
+  overlay_position: "top-right"
+  overlay_size: "300x200"
+  
+  # Visual settings
+  theme: "dark"
+  refresh_rate: 30
+  transparency: 0.8
+
+integrations:
+  # Microsoft Teams
+  teams:
+    enabled: false
+    api_key: "${TEAMS_API_KEY}"
+  
+  # Slack
+  slack:
+    enabled: false
+    api_key: "${SLACK_API_KEY}"
+  
+  # Browser automation
+  browser:
+    driver: "chrome"  # or "firefox"
+    headless: false
+
+logging:
+  # Log file settings
+  log_file: "./data/logs/system.log"
+  log_level: "INFO"
+  max_log_size: 10485760  # 10MB
+  backup_count: 5
+  
+  # Structured logging
+  use_structured_logging: true
+  json_logs: false

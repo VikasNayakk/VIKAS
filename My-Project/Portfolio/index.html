@@ -15,14 +15,14 @@
   <div class="noise" aria-hidden="true"></div>
 
   <aside class="quick-sidebar glow-frame mono" aria-label="Sidebar Menu">
-    <a class="active" href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="aliens-meeting.html">Meeting</a>
-    <a href="todo.html">ToDo</a>
-    <a href="recorder.html">Recorder</a>
+    <a class="active" href="index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+    <a href="about.html"><span class="nav-icon">👤</span><span>About</span></a>
+    <a href="projects.html"><span class="nav-icon">📂</span><span>Projects</span></a>
+    <a href="gallery.html"><span class="nav-icon">🖼</span><span>Gallery</span></a>
+    <a href="contact.html"><span class="nav-icon">✉</span><span>Contact</span></a>
+    <a href="aliens-meeting.html"><span class="nav-icon">👽</span><span>Meeting</span></a>
+    <a href="todo.html"><span class="nav-icon">✓</span><span>ToDo</span></a>
+    <a href="recorder.html"><span class="nav-icon">🎙</span><span>Recorder</span></a>
   </aside>
 
   <div class="site-wrap">
@@ -123,6 +123,93 @@
               <img src="assets/characters/aliens-badge.png" alt="Aliens Certified Fundamentals badge" />
             </figure>
           </div>
+        </section>
+
+        <!-- ══════════ LIQUID GLASS DOCK ══════════ -->
+        <section class="glass-showcase glow-tile reveal">
+          <div class="hud-backdrop" aria-hidden="true"></div>
+          <div class="hud-scanline" aria-hidden="true"></div>
+          <header class="glass-showcase__header">
+            <h3>&#128302; Alien HUD Command</h3>
+            <span class="mono lg-badge">LIVE GLASS ENGINE</span>
+          </header>
+          <div class="hud-grid">
+            <div class="hud-panel hud-panel--main">
+              <div class="lg-filter"></div>
+              <div class="lg-overlay"></div>
+              <div class="lg-specular"></div>
+              <div class="hud-content">
+                <div class="hud-title-row">
+                  <div>
+                    <h4 class="hud-title">ALIENS CORE</h4>
+                    <p class="hud-sub">Quantum link stable · Signal 99%</p>
+                  </div>
+                  <span class="hud-tag">PRIME</span>
+                </div>
+                <div class="hud-orbit" aria-hidden="true">
+                  <div class="hud-orbit__ring"></div>
+                  <div class="hud-orbit__ring hud-orbit__ring--inner"></div>
+                  <div class="hud-orbit__dot"></div>
+                </div>
+                <div class="hud-metrics hud-metrics--large">
+                  <div class="hud-metric">
+                    <span class="hud-label">Energy</span>
+                    <strong>92%</strong>
+                    <div class="hud-bar"><div class="hud-bar__fill" style="width:92%"></div></div>
+                  </div>
+                  <div class="hud-metric">
+                    <span class="hud-label">Shield</span>
+                    <strong>84%</strong>
+                    <div class="hud-bar"><div class="hud-bar__fill" style="width:84%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hud-panel hud-panel--stack">
+              <div class="lg-filter"></div>
+              <div class="lg-overlay"></div>
+              <div class="lg-specular"></div>
+              <div class="hud-content hud-content--tight">
+                <div class="hud-avatar">
+                  <img src="assets/characters/char-3.png" alt="Alien mask avatar" />
+                  <div>
+                    <span class="hud-name">VIKAS</span>
+                    <span class="hud-role">Commander · Prime</span>
+                  </div>
+                </div>
+                <div class="hud-actions">
+                  <a href="projects.html">Projects</a>
+                  <a href="aliens-meeting.html">Meeting</a>
+                  <a href="recorder.html">Recorder</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="hud-panel hud-panel--dock">
+              <div class="lg-filter"></div>
+              <div class="lg-overlay"></div>
+              <div class="lg-specular"></div>
+              <div class="hud-content hud-content--tight">
+                <div class="hud-dock">
+                  <a href="index.html">Home</a>
+                  <a href="gallery.html">Gallery</a>
+                  <a href="todo.html">ToDo</a>
+                  <a href="contact.html">Contact</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="lg-filters" aria-hidden="true">
+            <filter id="lensFilter" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+              <feComponentTransfer in="SourceAlpha" result="alpha">
+                <feFuncA type="identity" />
+              </feComponentTransfer>
+              <feGaussianBlur in="alpha" stdDeviation="50" result="blur" />
+              <feDisplacementMap in="SourceGraphic" in2="blur" scale="50" xChannelSelector="A" yChannelSelector="A" />
+            </filter>
+          </svg>
         </section>
 
         <!-- ══════════ QUICK STATS STRIP ══════════ -->

@@ -1,0 +1,30 @@
+AGENDA GENERATION RULES:
+
+1. Keep agenda between 5-10 words
+2. Use action-oriented language (e.g., "Review", "Discussion", "Training")
+3. Extract the core topic, not full sentences
+4. If multiple topics exist, pick the main one
+5. Do NOT use vague words like "stuff", "things", "misc"
+
+TYPE DETECTION KEYWORDS:
+
+Development Team:
+  coding, code, python, javascript, AI, backend, frontend, software, system,
+  develop, program, html, css, react, api, database, server, debug, deploy,
+  git, github, automation, script
+
+Graphics:
+  ui, ux, design, graphic, photoshop, figma, visual, asset, canva,
+  illustrator, logo, banner, creative, color, layout, wireframe
+
+Marketing:
+  marketing, promotion, ads, growth, campaign, seo, social media,
+  content, branding, reach, engagement, analytics, audience
+
+Sales:
+  sales, selling, client, revenue, deal, customer, pricing, invoice,
+  payment, CRM, lead, conversion, pitch, proposal
+
+Common:
+  meeting, standup, review, attendance, discipline, general, mixed,
+  training, orientation, onboarding, team building

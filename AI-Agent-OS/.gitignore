@@ -1,0 +1,44 @@
+"""
+.gitignore for AI-Agent-OS
+"""
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Secrets and config
+.env
+config/config.yaml
+*.key
+*.pem
+
+# Data and logs
+data/logs/*.log
+data/cache/*
+data/vector_db/*
+data/backups/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# System
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary
+*.tmp
+*.bak

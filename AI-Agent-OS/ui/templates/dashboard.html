@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 AI-Agent-OS Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🤖 AI-AGENT-OS</h1>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span id="status-text">Online</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Command Input Section -->
+            <section class="command-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="command-input" 
+                        placeholder="🔍 Tell me what to do... (or type 'help')"
+                        class="command-input"
+                        autocomplete="off"
+                    >
+                    <button class="send-btn" id="send-btn">
+                        <span>🚀 Send</span>
+                    </button>
+                </div>
+                <div class="input-hints">
+                    <span>Examples:</span>
+                    <span class="hint-tag" onclick="setCommand('send hello to himanshu')">Send message</span>
+                    <span class="hint-tag" onclick="setCommand('teams hello to vikas')">Teams DM</span>
+                    <span class="hint-tag" onclick="setCommand('open chrome')">Open app</span>
+                    <span class="hint-tag" onclick="setCommand('take screenshot')">Screenshot</span>
+                </div>
+            </section>
+
+            <!-- Status Panel -->
+            <section class="status-panel">
+                <div class="status-card">
+                    <h3>🧠 Kernel</h3>
+                    <div class="status-item">
+                        <span class="dot active"></span>
+                        Running
+                    </div>
+                </div>
+                <div class="status-card">
+                    <h3>🤖 Agents</h3>
+                    <div class="status-item">
+                        <span class="dot active"></span>
+                        4/4 Active
+                    </div>
+                </div>
+                <div class="status-card">
+                    <h3>💾 Memory</h3>
+                    <div class="status-item">
+                        <span class="dot active"></span>
+                        Initialized
+                    </div>
+                </div>
+                <div class="status-card">
+                    <h3>⚡ Performance</h3>
+                    <div class="status-item">
+                        <span class="dot active"></span>
+                        Optimal
+                    </div>
+                </div>
+            </section>
+
+            <!-- Command History -->
+            <section class="history-section">
+                <h2>📝 Command History</h2>
+                <div class="history-list" id="history-list">
+                    <div class="history-item empty">
+                        No commands yet. Start by typing a command above!
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agent Details -->
+            <section class="agents-section">
+                <h2>🤖 Agent System</h2>
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <h4>🎯 Coordinator</h4>
+                        <p>Routes messages & manages task queue</p>
+                        <div class="agent-status">Active ✅</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>⚙️ Executor</h4>
+                        <p>Executes low-level actions</p>
+                        <div class="agent-status">Active ✅</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>📋 Planner</h4>
+                        <p>Breaks tasks into steps</p>
+                        <div class="agent-status">Active ✅</div>
+                    </div>
+                    <div class="agent-card">
+                        <h4>📊 Monitor</h4>
+                        <p>Tracks system health & metrics</p>
+                        <div class="agent-status">Active ✅</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Help Section -->
+            <section class="help-section">
+                <h2>📚 Commands Help</h2>
+                <div class="commands-grid">
+                    <div class="command-group">
+                        <h3>💬 Messaging</h3>
+                        <ul>
+                            <li><code>send hello to [name]</code></li>
+                            <li><code>message [name] [text]</code></li>
+                        </ul>
+                    </div>
+                    <div class="command-group">
+                        <h3>🖥️ Apps</h3>
+                        <ul>
+                            <li><code>open [app]</code></li>
+                            <li><code>close [app]</code></li>
+                        </ul>
+                    </div>
+                    <div class="command-group">
+                        <h3>🎮 UI Control</h3>
+                        <ul>
+                            <li><code>type [text]</code></li>
+                            <li><code>click [x,y]</code></li>
+                            <li><code>take screenshot</code></li>
+                        </ul>
+                    </div>
+                    <div class="command-group">
+                        <h3>⚙️ System</h3>
+                        <ul>
+                            <li><code>status</code></li>
+                            <li><code>help</code></li>
+                            <li><code>exit</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>AI-Agent-OS v1.0 | 🚀 Advanced Autonomous Agent System</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

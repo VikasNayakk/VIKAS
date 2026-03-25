@@ -1,74 +1,186 @@
-# ================================
-# GitHub CLI Complete Workflow
-# ================================
+# ============================================================
+# Git Command Master List (Windows CMD Friendly)
+# ============================================================
 
+# ------------------------------------------------------------
+# 0) Basic Setup (Run once on new machine)
+# ------------------------------------------------------------
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+git config --global core.editor "notepad"
+git config --global pull.rebase false
+git config --list
 
-# Generate SSH Key on Server
-ssh-keygen -t rsa -b 4096 -C "adiisunlay@gmail.com"
-
-
-# Show Public Key and Copy it
+# ------------------------------------------------------------
+# 1) SSH Setup (GitHub)
+# ------------------------------------------------------------
+ssh-keygen -t rsa -b 4096 -C "you@example.com"
 type %USERPROFILE%\.ssh\id_rsa.pub
-
-
-# Open Public Key in Notepad (Copy and Paste to GitHub → SSH Keys)
 notepad %USERPROFILE%\.ssh\id_rsa.pub
-
-
-# Test SSH Connection with GitHub
 ssh -T git@github.com
 
+# ------------------------------------------------------------
+# 2) Create / Clone / Init
+# ------------------------------------------------------------
+git clone https://github.com/OWNER/REPO.git
+git clone -b main git@github.com:OWNER/REPO.git
+git init
+git remote add origin https://github.com/OWNER/REPO.git
+git remote add origin git@github.com:OWNER/REPO.git
+git remote -v
+
+# ------------------------------------------------------------
+# 3) Change Remote URL (HTTPS <-> SSH)
+# ------------------------------------------------------------
+git remote set-url origin git@github.com:OWNER/REPO.git
+git remote set-url origin https://github.com/OWNER/REPO.git
+
+# ------------------------------------------------------------
+# 4) Daily Workflow (Status / Add / Commit / Push / Pull)
+# ------------------------------------------------------------
+git status
+git add .
+git add path\to\file.txt
+git commit -m "Message"
+git push origin main
+git pull origin main
+
+# ------------------------------------------------------------
+# 5) Branching
+# ------------------------------------------------------------
+git branch
+git branch new-branch
+git checkout new-branch
+git checkout -b feature/login
+git branch -d old-branch
+git push origin feature/login
+git pull origin feature/login
+
+# ------------------------------------------------------------
+# 6) Merge / Rebase
+# ------------------------------------------------------------
+git checkout main
+git merge feature/login
+git rebase main
+git rebase --abort
+git rebase --continue
+
+# ------------------------------------------------------------
+# 7) Log / History
+# ------------------------------------------------------------
+git log
+git log --oneline --graph --decorate
+git show
+git diff
+git diff --staged
+
+# ------------------------------------------------------------
+# 8) Undo / Fix
+# ------------------------------------------------------------
+git restore path\to\file.txt
+git restore --staged path\to\file.txt
+git checkout -- path\to\file.txt
+git reset --soft HEAD~1
+git reset --mixed HEAD~1
+git reset --hard HEAD~1
+git revert HEAD
+
+# ------------------------------------------------------------
+# 9) Stash
+# ------------------------------------------------------------
+git stash
+git stash list
+git stash apply
+git stash pop
+git stash drop
+
+# ------------------------------------------------------------
+# 10) Tags (Releases)
+# ------------------------------------------------------------
+git tag
+git tag v1.0.0
+git tag -a v1.0.0 -m "Release 1.0.0"
+git push origin v1.0.0
+git push origin --tags
+git tag -d v1.0.0
+
+# ------------------------------------------------------------
+# 11) Fetch / Clean
+# ------------------------------------------------------------
+git fetch
+git fetch --all
+git remote prune origin
+git clean -fd
+
+# ------------------------------------------------------------
+# 12) Submodules
+# ------------------------------------------------------------
+git submodule add https://github.com/OWNER/REPO.git path\to\module
+git submodule init
+git submodule update
+git submodule update --remote
+
+# ------------------------------------------------------------
+# 13) Helpful Shortcuts (Aliases)
+# ------------------------------------------------------------
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.cm "commit -m"
+git config --global alias.lg "log --oneline --graph --decorate"
+
+# ------------------------------------------------------------
+# 14) Example Windows CMD One-Liners
+# ------------------------------------------------------------
+cd C:\Aliens\Project && git status
+cd C:\Aliens\Project && git add . && git commit -m "Update" && git push origin main
+cd C:\Aliens\Project && git pull origin main
 
 
-# ======================================
-# Change Repo Path (HTTPS → SSH)
-# ======================================
 
+     ###############################################################################################
+##############################################################################################
+###########################################################################################
+#################################################################################
+#########################################################################
+######################################################
+#############################
+#############
+#########
+####
+#
+#
+
+
+
+
+GitHub. CLI Connection
+ 
+ssh-keygen -t rsa -b 4096 -C "ianilcyborg@gmail.com"           // Generate Key on Server
+type $env:Adiisunlay\.ssh\id_rsa.pub.                   //. notepad $env:Adiisunlay\.ssh\id_rsa.pub.   // Copy Key and After This Paste Key to github Account
+ssh -T git@github.com                               // Test Connection on Server
+ 
+ 
+ 
+ 
+ 
+ 
+# change path agar ssh se lena ho ya url se yeh url se ssh me set karta hai
+ 
 git remote set-url origin git@github.com:Aliens-Company/Course_ACLE.git
-
-
-
-# ======================================
-# Git Clone Repo on Server (CMD)
-# ======================================
-
-cd C:\Aliens && git clone -b main git@github.com:Aliens-Company/Course_ACLE.git
-
-
-
-# ======================================
-# WebOS & System Updater == PULL (CMD)
-# ======================================
-
-cd C:\Aliens\Course_ACLE && dir && git pull origin main
-
-
-
-# ======================================
-# WebOS & System Updater == PUSH (CMD)
-# ======================================
-
-cd C:\Aliens\Course_ACLE && git add . && git commit -m "By VikasNayak" && git push origin main
-
-
-
-# ======================================
-# Check Repo Status
-# ======================================
-
-cd C:\Aliens\Course_ACLE && git status
-
-
-
-# ======================================
-# Check Remote Repo Connection
-# ======================================
-
-cd C:\Aliens\Course_ACLE && git remote -v
-
-
-
-
-
-
-dhgf hff ue fbanfhejagfbndfhjf
+ 
+ 
+# git Clone Repo on Server ( CMD )
+cd C:/Aliens/Course_ACLE && git clone -b main git@github.com:Aliens-Company/Course_ACLE.git
+ 
+#WebOS & System Updater == PULLLLLLL ( CMD )
+cd C:/Aliens/Course_ACLE && dir && git pull origin main
+ 
+ 
+#WebOS & System Updater == PUSHHH  ( CMD )
+cd C:/Aliens/Course_ACLE && git add . && git commit -m " By HimanshuNayak" && git push origin main
+ 
+ 
+ 
