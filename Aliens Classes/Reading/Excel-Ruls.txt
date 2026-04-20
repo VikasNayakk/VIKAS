@@ -1,0 +1,198 @@
+═══════════════════════════════════════════════════════════════════════
+  MODULE: EXCEL ENTRY RULES FOR SCREENSHOT DATA (v2.0)
+═══════════════════════════════════════════════════════════════════════
+
+PURPOSE:
+  Screenshot se nikale gaye data ko ek single Excel file mein
+  accurately, cleanly, aur consistently enter karna hai.
+  Koi galti nahi, koi guess nahi, koi duplicate nahi — Excel mein
+  sirf 100% verified aur screenshot-based data jaayega.
+
+───────────────────────────────────────────────────────────────────────
+  RULE 1: EK HI EXCEL FILE (SINGLE SOURCE OF TRUTH)
+───────────────────────────────────────────────────────────────────────
+  • Hamesha EK hi Excel file use karni hai — "Class-Data.xlsx" (ya jo bhi naam ho).
+  • Nayi class/topic aaye → usi Excel mein NAYI ROW add karo.
+  • Kabhi bhi nayi Excel file CREATE mat karo — kisi bhi condition mein nahi.
+  • Poora data ek centralized Excel mein maintain hona chahiye.
+  • Agar Excel file already exist karti hai → USME hi kaam karo.
+  • Agar nahi hai → pehli baar EK banao, phir wohi use karo hamesha.
+
+───────────────────────────────────────────────────────────────────────
+  RULE 2: EXCEL COLUMNS (9 COLUMNS — STRICT ORDER)
+───────────────────────────────────────────────────────────────────────
+
+  | Meeting Name | Agenda | Type | Duration | Date | Host | Present | Late | Absent |
+  |--------------|--------|------|----------|------|------|---------|------|--------|
+
+  COLUMN-WISE RULES:
+
+  COL 1 → Meeting Name
+  • Screenshot se exact title copy karo — as-is, koi modification nahi.
+  • Extra text (timestamps, prefixes, "Meeting |") hatao — sirf clean naam.
+  • Agar naam truncated/cut hai → jitna dikhta hai + "..." lagao.
+  • Max 200 characters.
+
+  COL 2 → Agenda
+  • Screenshot se key discussion points / topics nikalo.
+  • Format: Bullet points ya numbered list — clean & readable.
+  • Greetings ("Hi", "Hello"), join/leave notifications IGNORE karo.
+  • Agar bahut lamba hai → top 5-7 key points tak summarize karo.
+  • Koi agenda nahi dikhta → "No clear agenda visible" likho.
+
+  COL 3 → Type
+  • Allowed values SIRF ye hain:
+      - "Class" → Teaching/learning session
+      - "Meeting" → General team/company meeting
+      - "Workshop" → Hands-on training
+      - "Seminar" → Presentation/lecture
+      - "Review" → Performance/project review
+      - "Other" → Koi bhi upar wale mein fit na ho
+  • Agar decide nahi ho raha → "Unclear" likho.
+  • Apna guess mat lagao — screenshot se evidence hona chahiye.
+
+  COL 4 → Duration
+  • Format: "Xh Ym" (jaise "1h 30m", "45m", "2h").
+  • Start + End time dikhta hai → calculate karo.
+  • Direct duration dikhti hai → as-is copy karo.
+  • Agar nahi dikhti → BLANK chhodo.
+  • Time zone confusion ho → ignore karo, jo dikhta hai wohi likho.
+
+  COL 5 → Date
+  • Format: DD-MM-YYYY (SIRF yahi — koi aur format allowed nahi).
+  • Screenshot mein chahe koi bhi format ho → convert karke DD-MM-YYYY banao.
+  • "Today", "Yesterday" jaise relative dates mat likho.
+  • Agar date nahi dikhti → BLANK chhodo.
+  • Time ignore karo — sirf date chahiye.
+
+  COL 6 → Host
+  • Meeting/class ka organizer kaun hai — exact naam likho.
+  • Kaise dhundho: Title bar, participant list ("Organizer" tag), invite details.
+  • As-is naam — koi modification ya short form nahi.
+  • Agar host nahi pata → BLANK chhodo.
+
+  COL 7 → Present
+  • Jo log present hain unke naam — comma-separated likho.
+  • Source: Participant panel, attendee list, chat names.
+  • Agar exact names nahi dikh rahe → count likho (e.g., "12 participants").
+  • Agar koi attendance info nahi → BLANK chhodo.
+
+  COL 8 → Late
+  • Jo log late join hue — unke naam comma-separated likho.
+  • Late kaise identify karo:
+      - "Joined late" notification
+      - Join time class start ke baad
+      - Chat mein mention hua
+  • Agar clearly nahi dikhta → BLANK chhodo.
+  • GUESS bilkul mat karo.
+
+  COL 9 → Absent
+  • Jo log absent hain — unke naam comma-separated likho.
+  • Absent kaise identify karo:
+      - Attendance list mein "Absent" mark hai
+      - Expected list mein hai lekin present nahi
+      - Chat/meeting mein mention hua
+  • Agar clearly nahi dikhta → BLANK chhodo.
+  • GUESS bilkul mat karo.
+
+───────────────────────────────────────────────────────────────────────
+  RULE 3: DATA CLEANLINESS — ZERO TOLERANCE POLICY
+───────────────────────────────────────────────────────────────────────
+  • Excel mein SIRF screenshot-based data jaayega.
+  • Koi bhi unnecessary / irrelevant / extra data BANNED hai.
+  • "Faltu ka kachra" strictly prohibited — ek bhi extra word nahi.
+  • Har field mein sirf wohi likho jo screenshot mein clearly dikhta hai.
+  • Agar kuch samajh nahi aa raha → "Unclear" likho ya BLANK chhodo.
+  • Koi bhi value apne mann se ADD mat karo.
+
+───────────────────────────────────────────────────────────────────────
+  RULE 4: PRE-ENTRY VALIDATION (ENTRY SE PEHLE CHECK KARO)
+───────────────────────────────────────────────────────────────────────
+  Excel mein data dalne se PEHLE ye sab verify karo:
+
+  ✔ Meeting Name → Screenshot se exactly match kar raha hai?
+  ✔ Agenda → Sirf screenshot ka content hai, koi fabrication nahi?
+  ✔ Type → Sahi category select ki? Evidence screenshot mein hai?
+  ✔ Duration → Correct format "Xh Ym" mein hai?
+  ✔ Date → DD-MM-YYYY format mein convert hua hai?
+  ✔ Host → Exact naam hai, koi guess nahi?
+  ✔ Present → Sirf confirmed participants ke naam hain?
+  ✔ Late → Sirf verified late joiners hain?
+  ✔ Absent → Sirf confirmed absent log hain?
+  ✔ Column mapping sahi hai? (data sahi column mein ja raha hai?)
+
+  Agar koi bhi field doubtful lage:
+  → "Unclear" mark karo ya BLANK chhodo
+  → GUESS bilkul mat karo
+
+───────────────────────────────────────────────────────────────────────
+  RULE 5: ROW MANAGEMENT
+───────────────────────────────────────────────────────────────────────
+  • Ek class/meeting = Excel mein EK nayi row.
+  • Existing row ko kabhi OVERWRITE mat karo.
+  • Nayi data aaye → NAYI row add karo — purani touch mat karo.
+  • Agar same class ke multiple screenshots hain → MERGE karke ek row banao.
+  • Agar different classes hain → ALAG rows banao.
+
+───────────────────────────────────────────────────────────────────────
+  RULE 6: DUPLICATE DETECTION & PREVENTION
+───────────────────────────────────────────────────────────────────────
+  • Entry karne se pehle CHECK karo: Kya ye row already exist karti hai?
+  • Duplicate criteria: Same Meeting Name + Same Date = DUPLICATE.
+  • Agar duplicate milta hai → SKIP karo, dobara entry mat karo.
+  • Agar same meeting + same date par nayi info milti hai → existing row UPDATE karo
+    (sirf blank fields fill karo, existing data replace mat karo).
+
+───────────────────────────────────────────────────────────────────────
+  RULE 7: COLUMN MISMATCH — STRICTLY BANNED
+───────────────────────────────────────────────────────────────────────
+  • Har value SAHI column mein jaani chahiye — column mismatch ALLOWED NAHI.
+  • Meeting Name kabhi Agenda column mein nahi jaayega.
+  • Date kabhi Duration column mein nahi jaayega.
+  • Present/Late/Absent mix-up hona ALLOWED NAHI.
+  • Agar galti se mismatch ho jaaye → TURANT fix karo.
+
+───────────────────────────────────────────────────────────────────────
+  RULE 8: FORMATTING STANDARDS
+───────────────────────────────────────────────────────────────────────
+  • Date → DD-MM-YYYY (e.g., 02-04-2026)
+  • Duration → Xh Ym (e.g., 1h 30m, 45m, 2h)
+  • Names → Proper case, comma-separated (e.g., "Rahul, Sneha, Amit")
+  • Agenda → Bullet points ya numbered list
+  • Type → First letter capital (e.g., "Class", "Meeting")
+  • Blank fields → Completely empty chhodo (koi dash, NA, null mat likho)
+  • Text → No extra spaces, no trailing commas, no special characters
+
+───────────────────────────────────────────────────────────────────────
+  RULE 9: POST-ENTRY VERIFICATION CHECKLIST
+───────────────────────────────────────────────────────────────────────
+  Excel mein data dalne ke BAAD ye final check karo:
+
+  ☐ Sab 9 columns mein data sahi jagah hai?
+  ☐ Koi column empty to nahi reh gaya jo hona nahi chahiye tha?
+  ☐ Koi duplicate row to nahi ban gayi?
+  ☐ Date format DD-MM-YYYY mein hai?
+  ☐ Duration format Xh Ym mein hai?
+  ☐ Names properly comma-separated hain?
+  ☐ Type allowed values mein se hai?
+  ☐ Koi extra/fabricated data to nahi hai?
+  ☐ Koi spelling galat to nahi (screenshot ke hisaab se)?
+  ☐ Row sequence logical hai (purani entries disturb nahi hui)?
+
+───────────────────────────────────────────────────────────────────────
+  RULE 10: YE KABHI MAT KARNA (STRICT BAN LIST)
+───────────────────────────────────────────────────────────────────────
+  ✗ Nayi Excel file create karna — BANNED.
+  ✗ Data guess ya assume karna — BANNED.
+  ✗ Column mismatch — BANNED.
+  ✗ Duplicate rows banana — BANNED.
+  ✗ Existing row overwrite karna — BANNED.
+  ✗ Extra/irrelevant data dalna — BANNED.
+  ✗ Date format mix karna (sirf DD-MM-YYYY) — BANNED.
+  ✗ Blank fields mein "NA", "-", "null" likhna — BANNED.
+  ✗ Screenshot ke bina entry karna — BANNED.
+  ✗ Present/Late/Absent guess karna — BANNED.
+
+═══════════════════════════════════════════════════════════════════════
+  YAAD RAKH: Ek Excel. Clean Data. Sahi Column. Zero Guess.
+═══════════════════════════════════════════════════════════════════════

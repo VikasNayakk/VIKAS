@@ -100,17 +100,19 @@ body {
     radial-gradient(circle at 50% 100%, rgba(137, 247, 255, 0.18), transparent 40%),
     radial-gradient(circle at 50% 0%, rgba(184, 77, 255, 0.18), transparent 38%),
     radial-gradient(circle at 75% 50%, rgba(66, 184, 255, 0.08), transparent 35%);
-  filter: blur(12px);
+  /* filter: blur removed — was re-blurring entire page every frame */
 }
 
 .noise {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: 0.04;
   mix-blend-mode: screen;
   background-image: radial-gradient(rgba(255, 255, 255, 0.24) 0.6px, transparent 0.6px);
-  background-size: 3px 3px;
+  background-size: 4px 4px;
+  contain: strict;
+  will-change: auto;
 }
 
 .site-wrap {
@@ -1994,9 +1996,7 @@ aside.char-rail.glow-frame {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(150deg, rgba(14, 28, 64, 0.28), rgba(10, 20, 42, 0.22));
-  -webkit-backdrop-filter: blur(8px) saturate(1.3);
-  backdrop-filter: blur(8px) saturate(1.3);
+  background: linear-gradient(150deg, rgba(14, 28, 64, 0.48), rgba(10, 20, 42, 0.42));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.06),
     inset 0 0 0 1px rgba(148, 224, 255, 0.16);
@@ -2035,9 +2035,7 @@ aside.char-rail.glow-frame {
   corner-shape: squircle;
   text-align: center;
   font-size: 0.78rem;
-  background: linear-gradient(145deg, rgba(14, 28, 64, 0.28), rgba(10, 20, 42, 0.22));
-  -webkit-backdrop-filter: blur(8px) saturate(1.3);
-  backdrop-filter: blur(8px) saturate(1.3);
+  background: linear-gradient(145deg, rgba(14, 28, 64, 0.48), rgba(10, 20, 42, 0.42));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.06),
     inset 0 0 0 1px rgba(151, 226, 255, 0.14);
@@ -2049,18 +2047,14 @@ aside.char-rail.glow-frame {
   display: grid;
   grid-template-columns: 78px 1fr 86px;
   gap: 14px;
-  background: linear-gradient(155deg, rgba(12, 22, 52, 0.34), rgba(10, 16, 38, 0.28));
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  backdrop-filter: blur(14px) saturate(1.4);
+  background: linear-gradient(155deg, rgba(12, 22, 52, 0.54), rgba(10, 16, 38, 0.48));
 }
 
 .dash-left-rail,
 .dash-right-rail {
   border-radius: 18px;
   corner-shape: squircle;
-  background: linear-gradient(165deg, rgba(12, 22, 50, 0.32), rgba(8, 16, 35, 0.26));
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  backdrop-filter: blur(14px) saturate(1.4);
+  background: linear-gradient(165deg, rgba(12, 22, 50, 0.52), rgba(8, 16, 35, 0.46));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.08),
     inset 0 0 0 1px rgba(153, 226, 255, 0.14);
@@ -2082,8 +2076,6 @@ aside.char-rail.glow-frame {
   color: #e9f6ff;
   font-family: "Orbitron", sans-serif;
   background: linear-gradient(145deg, rgba(66, 184, 255, 0.36), rgba(184, 77, 255, 0.34));
-  -webkit-backdrop-filter: blur(12px) saturate(1.5);
-  backdrop-filter: blur(12px) saturate(1.5);
   box-shadow:
     inset 0 1px 0 0 rgba(220, 252, 255, 0.2),
     inset 0 0 0 1px rgba(190, 240, 255, 0.36),
@@ -2108,9 +2100,7 @@ aside.char-rail.glow-frame {
   place-items: center;
   color: #def4ff;
   font-size: 0.68rem;
-  background: linear-gradient(145deg, rgba(14, 28, 66, 0.32), rgba(10, 20, 44, 0.26));
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  background: linear-gradient(145deg, rgba(14, 28, 66, 0.52), rgba(10, 20, 44, 0.46));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.08),
     inset 0 0 0 1px rgba(149, 221, 255, 0.18);
@@ -2135,9 +2125,7 @@ aside.char-rail.glow-frame {
   border-radius: 18px;
   corner-shape: squircle;
   padding: 14px;
-  background: linear-gradient(155deg, rgba(14, 26, 62, 0.34), rgba(10, 20, 42, 0.28));
-  -webkit-backdrop-filter: blur(16px) saturate(1.5);
-  backdrop-filter: blur(16px) saturate(1.5);
+  background: linear-gradient(155deg, rgba(14, 26, 62, 0.54), rgba(10, 20, 42, 0.48));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.08),
     inset 0 0 0 1px rgba(153, 226, 255, 0.14);
@@ -2176,9 +2164,7 @@ aside.char-rail.glow-frame {
   color: #cfe9ff;
   min-width: 220px;
   text-align: center;
-  background: linear-gradient(145deg, rgba(12, 22, 54, 0.3), rgba(10, 18, 40, 0.24));
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  background: linear-gradient(145deg, rgba(12, 22, 54, 0.5), rgba(10, 18, 40, 0.44));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.07),
     inset 0 0 0 1px rgba(153, 226, 255, 0.16);
@@ -2198,9 +2184,7 @@ aside.char-rail.glow-frame {
   border-radius: 18px;
   corner-shape: squircle;
   padding: 14px;
-  background: linear-gradient(160deg, rgba(14, 30, 66, 0.32), rgba(10, 20, 44, 0.26));
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  backdrop-filter: blur(14px) saturate(1.4);
+  background: linear-gradient(160deg, rgba(14, 30, 66, 0.52), rgba(10, 20, 44, 0.46));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.07),
     inset 0 0 0 1px rgba(153, 226, 255, 0.14);
@@ -2244,6 +2228,27 @@ aside.char-rail.glow-frame {
 }
 .card-two:hover { box-shadow: 0 0 20px rgba(191,90,242,.25); transform: translateY(-2px); }
 
+/* ── Project Page Images ── */
+.dash-feature-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  corner-shape: squircle;
+  margin-bottom: 4px;
+}
+.dash-card-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  corner-shape: squircle;
+  margin-bottom: 6px;
+  opacity: .85;
+  transition: opacity .3s;
+}
+.dash-card:hover .dash-card-img { opacity: 1; }
+
 .dash-download {
   display: flex;
   justify-content: space-between;
@@ -2276,9 +2281,7 @@ aside.char-rail.glow-frame {
   display: grid;
   place-items: center;
   font-size: 0.67rem;
-  background: linear-gradient(145deg, rgba(14, 28, 66, 0.32), rgba(10, 20, 44, 0.26));
-  -webkit-backdrop-filter: blur(8px) saturate(1.3);
-  backdrop-filter: blur(8px) saturate(1.3);
+  background: linear-gradient(145deg, rgba(14, 28, 66, 0.52), rgba(10, 20, 44, 0.46));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.08),
     inset 0 0 0 1px rgba(149, 221, 255, 0.18);
@@ -2316,9 +2319,7 @@ aside.char-rail.glow-frame {
   padding: 12px 14px;
   border-radius: 12px;
   corner-shape: squircle;
-  background: linear-gradient(150deg, rgba(14, 28, 64, 0.34), rgba(10, 20, 42, 0.26));
-  -webkit-backdrop-filter: blur(10px) saturate(1.4);
-  backdrop-filter: blur(10px) saturate(1.4);
+  background: linear-gradient(150deg, rgba(14, 28, 64, 0.54), rgba(10, 20, 42, 0.46));
   border: 1px solid rgba(137, 247, 255, 0.06);
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.08),
@@ -2351,8 +2352,6 @@ aside.char-rail.glow-frame {
   overflow: hidden;
   margin-top: 8px;
   background: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.06),
     inset 0 0 0 1px rgba(150, 226, 255, 0.16);
@@ -2372,6 +2371,101 @@ aside.char-rail.glow-frame {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+}
+
+/* ── Photo Gallery Grid ── */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  corner-shape: squircle;
+  margin: 0;
+  cursor: pointer;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.photo-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 0 30px rgba(10, 132, 255, .3), 0 0 60px rgba(137, 247, 255, .1);
+}
+.photo-card.featured {
+  grid-column: span 2;
+}
+.photo-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.photo-card.featured img {
+  height: 280px;
+}
+.photo-card:hover img {
+  transform: scale(1.08);
+}
+.photo-card figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,.85));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.photo-card:hover figcaption {
+  opacity: 1;
+}
+.photo-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: .82rem;
+  color: #89f7ff;
+  text-shadow: 0 0 10px rgba(137, 247, 255, .5);
+  letter-spacing: 1px;
+}
+.photo-tag {
+  font-size: .68rem;
+  color: #b065ff;
+  background: rgba(176, 101, 255, .15);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(176, 101, 255, .3);
+}
+
+/* ── Home Photo Showcase ── */
+.photo-showcase-section { padding: 22px; }
+.photo-showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.photo-showcase-header h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  color: #89f7ff;
+}
+.photo-showcase-badge {
+  font-size: .72rem;
+  color: #30d158;
+  background: rgba(48, 209, 88, .12);
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(48, 209, 88, .3);
+}
+.photo-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
 }
 
 /* ── Gallery Feature Showcase ── */
@@ -2496,6 +2590,17 @@ aside.char-rail.glow-frame {
 .about-card-blue:hover  { box-shadow: 0 0 18px rgba(10,132,255,.25); }
 .about-card-purple:hover { box-shadow: 0 0 18px rgba(191,90,242,.25); }
 .about-card-green:hover  { box-shadow: 0 0 18px rgba(48,209,88,.25); }
+.about-card-img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  corner-shape: squircle;
+  margin-bottom: 8px;
+  opacity: .8;
+  transition: opacity .3s;
+}
+.about-card:hover .about-card-img { opacity: 1; }
 
 .contact-form {
   margin-top: 12px;
@@ -2513,9 +2618,7 @@ aside.char-rail.glow-frame {
   corner-shape: squircle;
   padding: 11px 12px;
   font-family: "Exo 2", sans-serif;
-  background: linear-gradient(150deg, rgba(12, 24, 56, 0.3), rgba(8, 18, 40, 0.24));
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  background: linear-gradient(150deg, rgba(12, 24, 56, 0.5), rgba(8, 18, 40, 0.44));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.07),
     inset 0 0 0 1px rgba(147, 223, 255, 0.16);
@@ -2543,9 +2646,7 @@ aside.char-rail.glow-frame {
   padding: 12px 14px;
   border-radius: 14px;
   corner-shape: squircle;
-  background: linear-gradient(155deg, rgba(14, 28, 66, 0.32), rgba(10, 20, 44, 0.26));
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  backdrop-filter: blur(14px) saturate(1.4);
+  background: linear-gradient(155deg, rgba(14, 28, 66, 0.52), rgba(10, 20, 44, 0.46));
   box-shadow: inset 0 1px 0 0 rgba(200, 240, 255, 0.08),
     inset 0 0 0 1px var(--glass-border),
     0 4px 16px rgba(0, 0, 0, 0.12);
@@ -2633,9 +2734,7 @@ aside.char-rail.glow-frame {
   corner-shape: squircle;
   padding: 12px;
   font-family: "Exo 2", sans-serif;
-  background: linear-gradient(150deg, rgba(12, 24, 56, 0.28), rgba(8, 18, 40, 0.22));
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  background: linear-gradient(150deg, rgba(12, 24, 56, 0.48), rgba(8, 18, 40, 0.42));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.07),
     inset 0 0 0 1px rgba(147, 223, 255, 0.16);
@@ -2687,9 +2786,7 @@ aside.char-rail.glow-frame {
   padding: 10px;
   border-radius: 11px;
   corner-shape: squircle;
-  background: linear-gradient(145deg, rgba(14, 28, 66, 0.3), rgba(10, 20, 46, 0.26));
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  background: linear-gradient(145deg, rgba(14, 28, 66, 0.5), rgba(10, 20, 46, 0.46));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.07),
     inset 0 0 0 1px rgba(149, 221, 255, 0.16);
@@ -2749,9 +2846,7 @@ aside.char-rail.glow-frame {
   corner-shape: squircle;
   padding: 12px;
   overflow: auto;
-  background: linear-gradient(150deg, rgba(10, 20, 48, 0.3), rgba(14, 28, 60, 0.24));
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  background: linear-gradient(150deg, rgba(10, 20, 48, 0.5), rgba(14, 28, 60, 0.44));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.06),
     inset 0 0 0 1px rgba(149, 220, 255, 0.12);
@@ -2785,9 +2880,7 @@ aside.char-rail.glow-frame {
 }
 
 .csv-table th {
-  background: rgba(66, 184, 255, 0.1);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  background: rgba(66, 184, 255, 0.14);
   font-family: "Orbitron", sans-serif;
   font-size: 0.73rem;
   letter-spacing: 0.07em;
@@ -2809,9 +2902,7 @@ aside.char-rail.glow-frame {
   corner-shape: squircle;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: linear-gradient(145deg, rgba(14, 28, 66, 0.32), rgba(10, 20, 46, 0.28));
-  -webkit-backdrop-filter: blur(12px) saturate(1.4);
-  backdrop-filter: blur(12px) saturate(1.4);
+  background: linear-gradient(145deg, rgba(14, 28, 66, 0.52), rgba(10, 20, 46, 0.48));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.1),
     inset 0 0 0 1px rgba(149, 221, 255, 0.18);
@@ -2887,9 +2978,7 @@ aside.char-rail.glow-frame {
   font-family: "Share Tech Mono", monospace;
   font-size: 0.82rem;
   resize: vertical;
-  background: linear-gradient(150deg, rgba(12, 24, 56, 0.28), rgba(8, 18, 40, 0.22));
-  -webkit-backdrop-filter: blur(10px) saturate(1.3);
-  backdrop-filter: blur(10px) saturate(1.3);
+  background: linear-gradient(150deg, rgba(12, 24, 56, 0.48), rgba(8, 18, 40, 0.42));
   box-shadow:
     inset 0 1px 0 0 rgba(200, 240, 255, 0.07),
     inset 0 0 0 1px rgba(147, 223, 255, 0.16);
@@ -5165,4 +5254,45 @@ aside.char-rail.glow-frame {
   .rc-btn-record { width: 56px; height: 56px; }
   .rc-btn-pause, .rc-btn-stop { width: 40px; height: 40px; font-size: 1rem; }
   .rc-result-actions { flex-direction: column; align-items: stretch; }
+}
+
+/* ══════════ PERFORMANCE: CONTENT VISIBILITY ══════════ */
+/* Lazy-render sections below the fold — huge FCP/LCP win */
+.glass-showcase,
+.home-stats-strip,
+.qa-section,
+.home-grid,
+.tech-section,
+.timeline-section,
+.cmd-section,
+.resp-section,
+.rc-save-section,
+.rc-recordings-list {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+/* ══════════ PERFORMANCE: REDUCE MOTION ══════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .starfield-canvas { display: none !important; }
+  .noise { display: none !important; }
+  .ambient::before, .ambient::after { animation: none !important; }
+  .ticker-track { animation: none !important; }
+  .rail-track { animation: none !important; }
+  .hud-scanline { animation: none !important; display: none; }
+}
+
+/* ══════════ PERFORMANCE: GPU LAYER HINTS ══════════ */
+.site-header {
+  will-change: auto;
+  contain: layout style;
+}
+.starfield-canvas {
+  will-change: transform;
+  contain: strict;
 }

@@ -1,6 +1,6 @@
 ---
 description: "Use when: full-stack software engineering, UI design, business strategy, innovation, automation, product selling workflow, multi-domain guidance, Hinglish instructions"
-name: "VikasNayak"
+name: "VikasCyborg"
 tools: [read, edit, search, execute, web, agent, todo]
 user-invocable: true
 ---

@@ -1,0 +1,236 @@
+═══════════════════════════════════════════════════════════════════════
+  TASK: SCREENSHOT DEEP READING & STRUCTURED EXCEL ENTRY (v2.0)
+═══════════════════════════════════════════════════════════════════════
+
+PURPOSE:
+  Tujhe har screenshot ko pixel-level tak deeply read karna hai,
+  class/meeting ki accurate info nikalni hai, aur Excel mein
+  structured, clean, error-free entry karni hai. Koi guess nahi,
+  koi assumption nahi — sirf wohi data jo screenshot mein dikh raha hai.
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 1: CORE RULES (TODNA ALLOWED NAHI)
+───────────────────────────────────────────────────────────────────────
+  R1. Screenshot ko minimum 2 baar poora padhna hai — pehle overview, phir detail.
+  R2. Koi bhi data guess, assume, ya fabricate karna strictly BANNED hai.
+  R3. Screenshot mein jo exact text hai, wahi use karna hai — rephrase nahi.
+  R4. Agar koi info partially visible / blurry / cut hai → "Unclear" likho.
+  R5. Agar screenshot empty hai ya class content nahi hai → skip karo, row mat banao.
+  R6. Hindi + English dono content ho sakta hai — dono ko as-is extract karo.
+  R7. Spelling mistakes screenshot mein hain to waisi hi copy karo (correct mat karo).
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 2: SCREENSHOT ANALYSIS PIPELINE
+───────────────────────────────────────────────────────────────────────
+
+  PHASE 1 → INITIAL SCAN (Pehle Overview Padho)
+  ─────────────────────────────────────────
+  • Poora screenshot upar se neeche tak scan karo.
+  • Check karo: Kya ye ek class/meeting ka screenshot hai?
+  • Platform detect karo (Microsoft Teams / Zoom / Google Meet / Other).
+  • Agar class content nahi hai → RUKO, ye screenshot skip karo.
+
+  PHASE 2 → CLASS BOUNDARY DETECT KARO
+  ─────────────────────────────────────────
+  • Class kahaan START hoti hai aur kahaan END hoti hai — clearly identify karo.
+  • Multiple classes ek screenshot mein ho sakti hain → har class ki alag row.
+  • UI elements (toolbar, taskbar, notifications) ko ignore karo.
+  • Sirf actual class/meeting content ko process karo.
+
+  PHASE 3 → MEETING NAME NIKALO
+  ─────────────────────────────────────────
+  • Screenshot ke TOP area / Title bar / Header mein meeting ka naam hoga.
+  • Exact same text copy karo — koi bhi modification nahi.
+  • Extra prefixes/suffixes (jaise "Meeting |", timestamps) hatao, sirf naam rakho.
+  • Agar title bar mein naam hai + body mein alag topic hai → Title bar wala use karo.
+  • Naam truncated/cut hai → jitna dikhta hai utna likho + "..." lagao end mein.
+
+  PHASE 4 → DATE DHUNDHO & FORMAT KARO
+  ─────────────────────────────────────────
+  • Screenshot mein date dhundho — header, footer, chat area, title bar sab check karo.
+  • Date formats jo mil sakte hain:
+      - DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD
+      - "March 15, 2025", "15 Mar 2025"
+      - "Today", "Yesterday" → ye mat likho, actual date likho (agar pata ho).
+  • Final Excel output format: DD-MM-YYYY (yahi standard hai).
+  • Agar date kaheen bhi clearly nahi dikhti → field blank chhod do.
+  • Time bhi dikhti hai to Date column mein sirf date daalo, time ignore karo.
+
+  PHASE 5 → AGENDA / CONTENT NIKALO
+  ─────────────────────────────────────────
+  • Poora screenshot gehraai se padho — har line, har word matter karta hai.
+  • Ye extract karo:
+      ✓ Main discussion topics / points
+      ✓ Key decisions ya announcements
+      ✓ Tasks jo assign ya mention hui hain
+      ✓ Important names, numbers, deadlines jo mention hui hain
+      ✓ Chat messages mein important content (agar dikhta hai)
+  • Ye ignore karo:
+      ✗ "Hi", "Hello", "Good morning" jaise greetings
+      ✗ Join/Leave notifications
+      ✗ System messages (recording started, etc.)
+      ✗ Participant list (jab tak agenda se related na ho)
+  • Agenda format: Bullet points / numbered list — clean & readable.
+  • Agar agenda bahut lamba hai → top 5-7 key points summarize karo.
+  • Agar koi clear agenda nahi dikhta → "No clear agenda visible" likho.
+
+  PHASE 6 → TYPE DETECT KARO
+  ─────────────────────────────────────────
+  • Meeting ka type identify karo screenshot se:
+      - "Class" → Regular teaching/learning session
+      - "Meeting" → General team/company meeting
+      - "Workshop" → Hands-on training session
+      - "Seminar" → Presentation/lecture style
+      - "Review" → Performance/project review
+      - "Other" → Koi bhi upar wale mein fit na ho
+  • Type platform UI, title, ya content se samajh aata hai.
+  • Agar clearly decide nahi ho raha → "Unclear" likho.
+
+  PHASE 7 → DURATION NIKALO
+  ─────────────────────────────────────────
+  • Screenshot mein meeting duration dhundho:
+      - Start time & End time dikhta hai → calculate karo (e.g., "1h 30m").
+      - Direct duration dikhti hai (e.g., "Duration: 45 min") → as-is copy karo.
+      - Sirf start time hai, end time nahi → sirf start time likho.
+  • Format: "Xh Ym" (jaise "1h 30m", "45m", "2h").
+  • Agar duration kaheen nahi dikhti → blank chhodo.
+
+  PHASE 8 → HOST IDENTIFY KARO
+  ─────────────────────────────────────────
+  • Meeting/class ka host (organizer) kaun hai — ye dhundho.
+  • Host ka naam usually dikhta hai:
+      - Title bar mein ("organized by...")
+      - Participant list mein (crown/star icon, "Organizer" tag)
+      - Meeting invite details mein
+  • Exact naam likho — as-is, koi modification nahi.
+  • Agar host clearly nahi pata → blank chhodo.
+
+  PHASE 9 → ATTENDANCE NIKALO (Present / Late / Absent)
+  ─────────────────────────────────────────
+  • Screenshot se participant/attendance info extract karo.
+
+  PRESENT:
+  • Jo log meeting mein present hain unke naam nikalo.
+  • Participant list, attendee panel, ya chat se identify karo.
+  • Comma-separated names likho (e.g., "Rahul, Sneha, Amit").
+  • Agar exact names nahi dikh rahe → count likho (e.g., "5 participants").
+  • Agar koi attendance info nahi hai → blank chhodo.
+
+  LATE:
+  • Jo log late join hue hain unke naam nikalo.
+  • Late identify kaise karo:
+      - "Joined late" notification dikhti hai
+      - Join time class start ke baad hai
+      - Chat mein kisi ne mention kiya "late aaya"
+  • Agar late info screenshot mein clearly nahi hai → blank chhodo.
+  • Guess mat karo — sirf clearly dikhne par likho.
+
+  ABSENT:
+  • Jo log absent hain unke naam nikalo.
+  • Absent identify kaise karo:
+      - Attendance list mein "Absent" mark hai
+      - Expected list mein hai lekin participant list mein nahi
+      - Chat/discussion mein kisi ne mention kiya
+  • Agar absent info screenshot mein clearly nahi hai → blank chhodo.
+  • Kabhi guess mat karo ki kaun absent tha.
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 3: EXCEL OUTPUT FORMAT
+───────────────────────────────────────────────────────────────────────
+
+  | Meeting Name | Agenda | Type | Duration | Date | Host | Present | Late | Absent |
+  |--------------|--------|------|----------|------|------|---------|------|--------|
+
+  COLUMN RULES:
+  • Meeting Name → Exact title, koi change nahi, max 200 chars.
+  • Agenda       → Structured bullet points. Clean, concise, accurate.
+  • Type         → Class / Meeting / Workshop / Seminar / Review / Other / Unclear.
+  • Duration     → "Xh Ym" format (jaise "1h 30m"). Blank agar nahi mila.
+  • Date         → Sirf DD-MM-YYYY format. Nahi mila to blank chhodo.
+  • Host         → Organizer ka exact naam. Blank agar nahi pata.
+  • Present      → Comma-separated names ya count. Blank agar info nahi.
+  • Late         → Late joiners ke naam. Blank agar clearly nahi dikhta.
+  • Absent       → Absent logon ke naam. Blank agar clearly nahi dikhta.
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 4: MULTIPLE SCREENSHOTS KA HANDLING
+───────────────────────────────────────────────────────────────────────
+  • Agar multiple screenshots ek hi class ke hain → merge karke EK row banao.
+  • Agar different classes hain → har class ki alag row banao.
+  • Duplicate detection: Same Meeting Name + Same Date = DUPLICATE → skip karo.
+  • Agar same class ke 2 screenshots mein different agenda points hain → dono combine karo.
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 5: DATA QUALITY & VALIDATION CHECKLIST
+───────────────────────────────────────────────────────────────────────
+  Process karne ke baad har row ko ye checklist se verify karo:
+
+  ☐ Meeting Name screenshot se exactly match karta hai?
+  ☐ Agenda mein sirf screenshot ka data hai, koi guess nahi?
+  ☐ Type sahi category mein hai? (Class/Meeting/Workshop/etc.)
+  ☐ Duration correct format (Xh Ym) mein hai? Ya blank hai?
+  ☐ Date sahi format (DD-MM-YYYY) mein hai? Ya blank chhoda hai?
+  ☐ Host ka naam exactly screenshot se match karta hai?
+  ☐ Present list mein sirf confirmed participants hain?
+  ☐ Late list mein sirf clearly late log hain, guess nahi?
+  ☐ Absent list mein sirf confirmed absent log hain, guess nahi?
+  ☐ Koi duplicate row to nahi ban gayi?
+  ☐ Koi extra/irrelevant data to nahi aa gaya?
+  ☐ Hindi/English text as-is copy hua hai, translate nahi kiya?
+  ☐ Spelling screenshot ke hisaab se exact same hai?
+  ☐ "Unclear" sirf genuinely unclear fields mein likha hai?
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 6: EDGE CASES & SPECIAL SCENARIOS
+───────────────────────────────────────────────────────────────────────
+  CASE 1: Screenshot blurry / low quality hai
+    → Jo readable hai wo extract karo, baaki "Unclear" mark karo.
+
+  CASE 2: Screenshot cropped / incomplete hai
+    → Jo visible hai wo process karo, missing parts guess mat karo.
+
+  CASE 3: Ek screenshot mein multiple meetings dikh rahi hain
+    → Har meeting ki alag row banao.
+
+  CASE 4: Sirf chat window hai (meeting header nahi hai)
+    → Chat content se meeting name nikalke try karo.
+    → Agar nahi milta → Meeting Name = "Unclear"
+
+  CASE 5: Screenshot mein sirf participant list hai
+    → Agar koi agenda/topic nahi → skip karo (row mat banao).
+
+  CASE 6: Recording/transcript notification ka screenshot hai
+    → Skip karo — ye class content nahi hai.
+
+  CASE 7: Same class hai, lekin dates alag hain
+    → Alag rows banao (date alag hai to entry alag).
+
+  CASE 8: WhatsApp/Telegram group screenshot (class related)
+    → Process karo agar class discussion content hai.
+    → Group name = Meeting Name.
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 7: KAAM KARNE KA ORDER & WORKFLOW
+───────────────────────────────────────────────────────────────────────
+  1. Class-ScreenShort folder se screenshots uthao.
+  2. Ek-ek screenshot process karo (batch mein mat karo).
+  3. Har screenshot ke liye Phase 1→9 follow karo.
+  4. Excel row banao.
+  5. Validation checklist run karo.
+  6. Process ho jaane ke baad screenshot ko 'processed' folder mein move karo.
+  7. Agle screenshot par jao.
+
+───────────────────────────────────────────────────────────────────────
+  SECTION 8: YE KABHI MAT KARNA (STRICT PROHIBITIONS)
+───────────────────────────────────────────────────────────────────────
+  ✗ Kabhi bhi data guess ya assume mat karo.
+  ✗ Kabhi bhi screenshot ke bahar ka data add mat karo.
+  ✗ Kabhi bhi text rephrase, translate, ya "improve" mat karo.
+  ✗ Kabhi bhi empty/duplicate rows create mat karo.
+  ✗ Kabhi bhi date format mix mat karo — sirf DD-MM-YYYY.
+  ✗ Kabhi bhi unclear data ko confident text se replace mat karo.
+  ✗ Kabhi bhi screenshot skip mat karo bina class content check kiye.
+
+═══════════════════════════════════════════════════════════════════════
+  YAAD RAKH: Accuracy > Speed. Quality > Quantity. Data = Sacred.
+═══════════════════════════════════════════════════════════════════════

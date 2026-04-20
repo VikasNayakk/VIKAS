@@ -25,7 +25,7 @@ ASK_ONTIME=YES
 GENERATE_ALLJOIN=YES
 GENERATE_LATE=YES
 GENERATE_CSV=YES
-DATE=3/11/2026
+DATE=4/5/2026
 
 
 ==================================================
@@ -44,8 +44,8 @@ Entry Data:
 - Meeting Name = Project Manger
 - Type = Mangement
 - Duration = 7:00pm to 8:00pm
-- Date = 3/4/2026
-- Host = himanshu
+- Date = Today Date
+- Host = (Host) 
 - Present = 1
 - Late = 2
 - Absent = 4
@@ -58,42 +58,48 @@ Statu = 1
 
 List Of All-Join:
 
-(Meeting 3/11/2026 — Yahan present members paste karo)
+Vikas Nayak (Me)
+A"dii Sunlay (Host)
+Sahil Sudiya
+Anita Nayak
+Harpreet Singh
+Poonam Kumari
+Sunil Kori
+Pooja Sudiya
+Himanshu Nayak
+Paras Aggwal
+Tarachand Lohara
+Abhinav Bishnoi
+RAJESH NAYAK
+Ajay Nayak
+Harish Jaypal
+Dinesh Kumar
+Rohit
+Pooja Nayak
+Mamta Nayak
+Vishujeet Singh
+Parveen Kumar
+Sandeep Barupal
+SIDHANT AGGRWAL
+Gagan
+krishan lal
+Nitesh Aggrwal
+Raju Singh
+Rajani Rani
 
 
 
 List Of Time Par Join:
 
-(Yahan time par join hone wale members paste karo)
-
-==================================================
-TRIGGER BLOCK 4
-==================================================
-Statu = 1
-
-https://teams.microsoft.com/v2/   
-
-Team ke under Vikas Nayak ko " Aliens-Meeting ke under jo Folder hai table name ka uska ab jo report bnegi vo shere karni hai"
---- > But yaad rahe ye kam last me karna hai 
-
-table or dhyan se kh kari is tarike se bhejna hai  
-
-Example Ruls :- 
-
-
-Data ko Excel file me export mat karo.
-Output ko isi table format me generate karo:
-
-Columns:
-No. | Present Members | Late | Absent
-
-Rules:
-1. Har row me serial number hona chahiye.
-2. Present  column me present ....  ke naam likho.
-3. Late column me late ....  ke naam likho.
-4. Absent column me absent .... ke naam likho.
-5. Output plain table format me ho, Excel file generate nahi karni.
-6. Table copy-paste friendly honi chahiye.
-
-
-table ko team par bhejne se phele image ke format ko dekh lena iske hisab se send kar kachra nhi karna sahi format se send karna hai
+Vikas Nayak (Me)
+A'dii Sunlay (Host)
+Sahil Sudiya
+Rajani Rani
+Anita Nayak
+Sahiram Nayak
+Harpreet Singh
+Poonam Kumari
+Sunil kori
+Pooja Sudiya
+Raju Singh
+Himanshu Nayak

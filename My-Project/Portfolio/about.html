@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
   <title>Aliens Site | About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo+2:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;700&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -70,6 +72,7 @@
         <!-- Info Cards -->
         <div class="about-grid reveal">
           <article class="glow-tile panel about-card about-card-blue">
+            <img loading="lazy" src="assets/photos/unsplash-code-13.jpg" alt="Code" class="about-card-img" />
             <h3>Strengths</h3>
             <ul class="clean-list mono">
               <li>AI Workflow Design</li>
@@ -78,10 +81,12 @@
             </ul>
           </article>
           <article class="glow-tile panel about-card about-card-purple">
+            <img loading="lazy" src="assets/photos/unsplash-futuristic-11.jpg" alt="Future" class="about-card-img" />
             <h3>Vision</h3>
             <p>Technology platforms that create measurable impact for teams, students, and operations.</p>
           </article>
           <article class="glow-tile panel about-card about-card-green">
+            <img loading="lazy" src="assets/photos/unsplash-workspace-5.jpg" alt="Workspace" class="about-card-img" />
             <h3>Certification</h3>
             <p>Aliens Fundamentals aesthetic + practical execution driven portfolio architecture.</p>
           </article>

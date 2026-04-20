@@ -1,0 +1,63 @@
+No. | Present Members      | Late           | Absent
+----+----------------------+----------------+---------------------
+1   | Vikas Nayak          | Sahiram Nayak  | Rajveer Nayak
+2   | A"dii Sunlay         | Jaspal Byavat  | Ajay Nayak
+3   | Tarachand Lohara     | Navraj Singh   | Sumit
+4   | Abhinav Bishnoi      | Poonam Kumari  | Pawan Meghwal
+5   | Paras Bishnoi        | Khushbu        | Gagan Chouhan
+6   | Anita Nayak          | Himanshu Nayak | Gagan Kumar
+7   | Krishan lal          | Pawan Bhati    | Gurpreet Singh
+8   | Rohit Kumar          | Rajesh Nayak   | Harpreet Singh
+9   | Gagan Nayak          | Aira           | Mandeep Kaur
+10  | Arnav Bishnoi        | Sapna          | Nitesh Aggrwal
+11  | Prem Kumar           | Savitri        | Paras Aggrwal
+12  | Pooja Sudiya         | Suman          | Parveen Kumar
+13  | Sahiram Nayak        | Sunita         | Pawan Kumar
+14  | Jaspal Byavat        |                | Pooja Nayak
+15  | Navraj Singh         |                | Raju Singh
+16  | Poonam Kumari        |                | Sandeep Barupal
+17  | Khushbu              |                | Shyo Chand
+18  | Himanshu Nayak       |                | Sunil Kori
+19  | Pawan Bhati          |                | Yogesh Khand
+20  | Rajesh Nayak         |                | Dinesh
+21  | Rajani Rani          |                | Dinesh Kumar
+22  | Aira                 |                | Bharat Ram
+23  | Sapna                |                | Ravina
+24  | Savitri              |                | Mamta-2
+25  | Suman                |                | Trikshna
+26  | Sunita               |                | Siya
+27  |                      |                | Vishnu
+28  |                      |                | Somveer
+29  |                      |                | Ravishankar
+30  |                      |                | Darsh
+31  |                      |                | Sidhant
+32  |                      |                | Shivam
+33  |                      |                | Anmol
+34  |                      |                | Gopal
+35  |                      |                | Namchand
+36  |                      |                | Somdev
+37  |                      |                | Gursaj Singh
+38  |                      |                | Satish Kumar
+39  |                      |                | Bhavishya Jayani
+40  |                      |                | Vishal
+41  |                      |                | Gotam
+42  |                      |                | Gurjeet
+43  |                      |                | Kulwant
+44  |                      |                | Sachin
+45  |                      |                | Kirat
+46  |                      |                | Urmila
+47  |                      |                | Harshita
+48  |                      |                | Manisha
+49  |                      |                | Kalpna
+50  |                      |                | Varshita kanwar
+51  |                      |                | Pooja-2
+52  |                      |                | Dimpal
+53  |                      |                | Mukesh
+54  |                      |                | Bhanupartap
+55  |                      |                | Harman
+56  |                      |                | Suyogita
+57  |                      |                | Komal Kanwar
+58  |                      |                | Lokender
+59  |                      |                | Neha
+60  |                      |                | Bhavna
+61  |                      |                | Kajal

@@ -1,0 +1,61 @@
+Project: Aliens Classes — Main Entry System
+
+Purpose
+This file defines the main entry point and coordination logic for the "Aliens Classes" automation. It initializes the environment, loads configuration, and orchestrates the workflow that converts inputs (screenshots / instructions) into structured Excel entries.
+
+Quick Summary (TL;DR)
+- Initialize system and required modules
+- Load configuration and rules
+- Scan the `Reading` folder for instructions and screenshots
+- Parse and validate data according to rules
+- Write structured entries into the central Excel file (single source of truth)
+
+Core Responsibilities
+- System initialization: load modules, set paths, and environment variables
+- Configuration management: read external config and rules
+- Input processing: scan `Reading` folder, interpret prompts/instructions, and extract data
+- Data validation: apply rules to avoid duplicates and invalid entries
+- Persistence: update a single, canonical Excel file with structured rows
+
+Folder Structure (what lives where)
+- `Excel/` — Central Excel file(s) and helpers for read/write operations
+- `Reading/` — Instruction engine and input sources (screenshots, prompt files, etc.)
+
+Reading Folder Contents
+- `Class-ScreenShort/` — folder with class-based helpers to capture/represent screenshots
+- `ScreenShort-Reading.txt` — utilities / notes to read/process screenshot images (currently a .txt in workspace)
+- `Excel-Ruls.txt` — mapping and validation rules for Excel entries (currently a .txt in workspace; consider renaming to `Excel-Rules.py` or converting to a Python module)
+
+Expected Workflow
+1. System starts and loads configuration (paths, excel file location, rules)
+2. Scan `Reading/` for new inputs (files, screenshots, prompt descriptors)
+3. For each input: parse, map fields using `Excel-Ruls`, validate (no duplicates, required fields present)
+4. Append or update the central Excel file in a consistent row/column format
+5. Log actions and surface errors for manual review when rules cannot resolve ambiguity
+
+Rules & Guarantees
+- Treat Excel as the single source of truth — always write in a consistent schema
+- No duplicate rows: use deterministic keys/filters to detect duplicates
+- Only valid, rule-compliant entries are written automatically; ambiguous cases are flagged for review
+
+Usage / Operation Notes
+- Operator (Vikas) will provide screenshots and instruction files into `Reading/`.
+- The system should run unattended: interpret inputs and update Excel automatically where rules are confident.
+- Keep logs for all operations and store rejected/ambiguous items in a `quarantine/` subfolder for manual processing.
+
+Example: simple flow
+- New screenshot arrives in `Reading/screenshots/`
+- `ScreenShort-Reading` extracts text/fields
+- `Excel-Ruls` maps extracted fields to Excel columns and validates
+- If valid and not duplicate → write to `Excel/data.xlsx` else → move to `Reading/quarantine/` and log reason
+
+Next Improvements (ideas)
+- Add unit tests for `Excel-Ruls` and parsing functions
+- Add CLI flags: dry-run, verbose, single-step processing
+- Add automatic backup/versioning of `Excel/data.xlsx` before write
+
+Contact
+For questions or inputs, add files to the `Reading/` folder and check logs for status. If needed, open `Main.py` to adjust paths or configuration.
+
+---
+Updated: Clearer prompt, structured workflow, and practical usage notes.

@@ -1,0 +1,60 @@
+===== MEETING TRACKING LOG =====
+Meeting: Aliens Training
+Date: 14-April-2026
+Meeting ID: 83477481447
+Tracker Name: Meeting Traker
+========================================
+
+Time          | Members | Names
+------------------------------------------------------------------------
+07:08 PM      | 28      | A"dii Sunlay, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Himanshu Nayak, Jaspal Byavat, Mamta Nayak, Nemchand Nayak, Pooja Nayak, Pooja Sudiya, RAJESH NAYAK, Rajani Rani, Sahiram Nayak, Tarachand Lohara, bhavishya jaat, krishan lal, sahil sudiya, somveer_bishnoi, sunil kori
+07:10 PM      | 28      | A"dii Sunlay, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Himanshu Nayak, Jaspal Byavat, Mamta Nayak, Nemchand Nayak, Pooja Nayak, Pooja Sudiya, RAJESH NAYAK, Rajani Rani, Sahiram Nayak, Tarachand Lohara, bhavishya jaat, krishan lal, sahil sudiya, somveer_bishnoi, sunil kori
+07:13 PM      | 29      | A"dii Sunlay, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Himanshu Nayak, Jaspal Byavat, Mamta Nayak, Nemchand Nayak, Pooja Nayak, Pooja Sudiya, Prem Kumar, RAJESH NAYAK, Rajani Rani, Rohit, Sahiram Nayak, Tarachand Lohara, bhavishya jaat, krishan lal, sahil sudiya, somveer_bishnoi, sunil kori
+07:14 PM      | 31      | A"dii Sunlay, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Himanshu Nayak, Jaspal Byavat, Mamta Nayak, Nemchand Nayak, Pooja Nayak, Pooja Sudiya, Prem Kumar, RAJESH NAYAK, Rajani Rani, Rohit, Sahiram Nayak, Tarachand Lohara, bhavishya jaat, krishan lal, sahil sudiya, somveer_bishnoi, sunil kori
+07:31 PM      | 30      | A"dii Sunlay, Ajay Nayak, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Himanshu Nayak, Mamta Nayak, Nemchand Nayak, Pooja Nayak, Pooja Sudiya, Prem Kumar, Rohit, Sahiram Nayak, Sandeep Barupal, Tarachand Lohara, bhavishya jaat, krishan lal, sahil sudiya, sunil kori
+07:32 PM      | 29      | A"dii Sunlay, Ajay Nayak, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Himanshu Nayak, Mamta Nayak, Nemchand Nayak, Pooja Nayak, Pooja Sudiya, Prem Kumar, Rohit, Sahiram Nayak, Sandeep Barupal, Tarachand Lohara, bhavishya jaat, krishan lal, sahil sudiya, sunil kori
+07:38 PM      | 26      | A"dii Sunlay, Abhinav Bishnoi, Ajay Nayak, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Himanshu Nayak, Mamta Nayak, Pooja Nayak, Pooja Sudiya, Poonam Kumari, Prem Kumar, Sahiram Nayak, Tarachand Lohara, Vikas Nayak, bhavishya jaat, khushbu, sahil sudiya, sunil kori
+07:43 PM      | 27      | A"dii Sunlay, Anita Nayak, Arnav Bishnoi, Dinesh kumar, Mamta Nayak, Pooja Nayak, Pooja Sudiya, Tarachand Lohara, sahil sudiya, sunil kori + more (panel showed 11)
+07:45 PM      | 21      | A"dii Sunlay, Abhinav Bishnoi, Anita Nayak, Mamta Nayak, Pooja Nayak, Pooja Sudiya, Sahiram Nayak, Tarachand Lohara, sahil sudiya, sunil kori (MEETING ENDED BY HOST)
+
+========================================
+MEETING ENDED AT ~07:45 PM
+========================================
+
+SUMMARY:
+- Meeting Start (joined): ~07:06 PM
+- Meeting End: ~07:45 PM
+- Duration: ~39 minutes
+- Peak Members: 31 (at 07:14 PM)
+- Final Members: 21
+
+ALL UNIQUE MEMBERS SEEN DURING MEETING:
+1.  A"dii Sunlay (Host)
+2.  Abhinav Bishnoi
+3.  Ajay Nayak
+4.  Anita Nayak
+5.  Arnav Bishnoi
+6.  bhavishya jaat
+7.  Dinesh kumar
+8.  Harish Jaypal
+9.  Himanshu Nayak
+10. Jaspal Byavat
+11. khushbu
+12. krishan lal
+13. Mamta Nayak
+14. naresh nayak
+15. Nemchand Nayak
+16. Pooja Nayak
+17. Pooja Sudiya
+18. Poonam Kumari
+19. Prem Kumar
+20. RAJESH NAYAK
+21. Rajani Rani
+22. Rohit
+23. sahil sudiya
+24. Sahiram Nayak
+25. Sandeep Barupal
+26. somveer_bishnoi
+27. sunil kori
+28. Tarachand Lohara
+29. Vikas Nayak

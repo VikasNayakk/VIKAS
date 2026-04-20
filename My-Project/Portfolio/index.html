@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
   <title>Aliens Site | Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo+2:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;700&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -87,11 +89,11 @@
     <main class="layout">
       <aside class="char-rail glow-frame" data-rail>
         <div class="rail-track">
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
         </div>
       </aside>
 
@@ -172,7 +174,7 @@
               <div class="lg-specular"></div>
               <div class="hud-content hud-content--tight">
                 <div class="hud-avatar">
-                  <img src="assets/characters/char-3.png" alt="Alien mask avatar" />
+                  <img loading="lazy" src="assets/characters/char-3.png" alt="Alien mask avatar" />
                   <div>
                     <span class="hud-name">VIKAS</span>
                     <span class="hud-role">Commander · Prime</span>
@@ -206,8 +208,8 @@
               <feComponentTransfer in="SourceAlpha" result="alpha">
                 <feFuncA type="identity" />
               </feComponentTransfer>
-              <feGaussianBlur in="alpha" stdDeviation="50" result="blur" />
-              <feDisplacementMap in="SourceGraphic" in2="blur" scale="50" xChannelSelector="A" yChannelSelector="A" />
+              <feGaussianBlur in="alpha" stdDeviation="8" result="blur" />
+              <feDisplacementMap in="SourceGraphic" in2="blur" scale="8" xChannelSelector="A" yChannelSelector="A" />
             </filter>
           </svg>
         </section>
@@ -355,6 +357,43 @@
             <div class="tech-item"><span class="tech-logo">&#127760;</span><span class="tech-name">Web Scraping</span></div>
             <div class="tech-item"><span class="tech-logo">&#129302;</span><span class="tech-name">AnilCyborg</span></div>
             <div class="tech-item"><span class="tech-logo">&#128039;</span><span class="tech-name">Venom</span></div>
+          </div>
+        </section>
+
+        <!-- ══════════ PHOTO SHOWCASE ══════════ -->
+        <section class="photo-showcase-section glow-tile reveal">
+          <header class="photo-showcase-header">
+            <h3>&#128248; Visual Command Feed</h3>
+            <span class="mono photo-showcase-badge">LIVE IMAGES</span>
+          </header>
+          <div class="photo-showcase-grid">
+            <figure class="photo-card glow-tile featured">
+              <img loading="lazy" src="assets/photos/unsplash-cyberpunk-4.jpg" alt="Cyberpunk City" />
+              <figcaption><span class="photo-title">CYBERPUNK CITY</span><span class="photo-tag mono">Urban Future</span></figcaption>
+            </figure>
+            <figure class="photo-card glow-tile">
+              <img loading="lazy" src="assets/photos/unsplash-spaceship-1.jpg" alt="Spaceship" />
+              <figcaption><span class="photo-title">SPACESHIP</span><span class="photo-tag mono">Aerospace</span></figcaption>
+            </figure>
+            <figure class="photo-card glow-tile">
+              <img loading="lazy" src="assets/photos/unsplash-neon-2.jpg" alt="Neon Lights" />
+              <figcaption><span class="photo-title">NEON PULSE</span><span class="photo-tag mono">Light Art</span></figcaption>
+            </figure>
+            <figure class="photo-card glow-tile">
+              <img loading="lazy" src="assets/photos/unsplash-circuit-6.jpg" alt="Circuit Board" />
+              <figcaption><span class="photo-title">CIRCUIT CORE</span><span class="photo-tag mono">Hardware</span></figcaption>
+            </figure>
+            <figure class="photo-card glow-tile featured">
+              <img loading="lazy" src="assets/photos/unsplash-corridor-8.jpg" alt="Futuristic Corridor" />
+              <figcaption><span class="photo-title">DARK CORRIDOR</span><span class="photo-tag mono">Architecture</span></figcaption>
+            </figure>
+            <figure class="photo-card glow-tile">
+              <img loading="lazy" src="assets/photos/unsplash-galaxy-12.jpg" alt="Galaxy" />
+              <figcaption><span class="photo-title">GALAXY CORE</span><span class="photo-tag mono">Deep Space</span></figcaption>
+            </figure>
+          </div>
+          <div style="text-align:center; margin-top:12px;">
+            <a href="gallery.html" class="btn ghost" style="font-size:.85rem;">View All 20 Photos &#8594;</a>
           </div>
         </section>
 
@@ -543,11 +582,11 @@
 
       <aside class="char-rail glow-frame right" data-rail>
         <div class="rail-track reverse">
-          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
-          <figure class="char-card"><img src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/char-3.png" alt="Alien Mask Team" /><figcaption>MASK TEAM</figcaption></figure>
+          <figure class="char-card"><img loading="lazy" src="assets/characters/aliens-badge.png" alt="Aliens Badge" /><figcaption>ALIENS HQ</figcaption></figure>
         </div>
       </aside>
     </main>

@@ -53,9 +53,13 @@ function addHeroFloat() {
     return;
   }
   _heroFloatHandler = function(event) {
-    var x = (event.clientX / window.innerWidth - 0.5) * 8;
-    var y = (event.clientY / window.innerHeight - 0.5) * 8;
-    floatingCard.style.transform = "translate(" + x + "px, " + y + "px)";
+    if (_heroFloatHandler._raf) return;
+    _heroFloatHandler._raf = requestAnimationFrame(function() {
+      var x = (event.clientX / window.innerWidth - 0.5) * 8;
+      var y = (event.clientY / window.innerHeight - 0.5) * 8;
+      floatingCard.style.transform = "translate(" + x + "px, " + y + "px)";
+      _heroFloatHandler._raf = null;
+    });
   };
   window.addEventListener("mousemove", _heroFloatHandler);
 }
@@ -625,7 +629,7 @@ function initStarfield() {
   if (!c) return;
   var ctx = c.getContext('2d');
   var stars = [];
-  var COUNT = 120;
+  var COUNT = 50;
   _starfieldResize = function() { c.width = window.innerWidth; c.height = window.innerHeight; };
   _starfieldResize();
   window.addEventListener('resize', _starfieldResize);
@@ -673,12 +677,17 @@ function initTilt() {
   var cards = document.querySelectorAll('.home-stat-card');
   if (!cards.length) return;
   cards.forEach(function(card) {
+    var _tiltRaf = null;
     card.addEventListener('mousemove', function(e) {
-      var rect = card.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transition = 'none';
-      card.style.transform = 'perspective(600px) rotateY(' + (x * 12) + 'deg) rotateX(' + (-y * 12) + 'deg) scale(1.03)';
+      if (_tiltRaf) return;
+      _tiltRaf = requestAnimationFrame(function() {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transition = 'none';
+        card.style.transform = 'perspective(600px) rotateY(' + (x * 12) + 'deg) rotateX(' + (-y * 12) + 'deg) scale(1.03)';
+        _tiltRaf = null;
+      });
     });
     card.addEventListener('mouseleave', function() {
       card.style.transition = 'transform 0.4s ease';
