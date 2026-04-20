@@ -8,3 +8,25 @@ Thumbs.db
 # Python cache
 __pycache__/
 *.pyc
+
+# Secrets & credentials (NEVER commit these)
+.env
+.env.*
+*.env
+secrets/
+secret.*
+*.secret
+*.key
+*.pem
+*.pfx
+*.p12
+credentials.json
+service-account*.json
+azure-credentials*
+connection-strings*
+*apikey*
+*api_key*
+*access_key*
+*access-key*
+text.sh
+
