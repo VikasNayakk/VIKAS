@@ -140,7 +140,8 @@ cd C:\Aliens\Project && git pull origin main
 
 
 
-     ###############################################################################################
+     
+###############################################################################################
 ##############################################################################################
 ###########################################################################################
 #################################################################################
@@ -152,7 +153,6 @@ cd C:\Aliens\Project && git pull origin main
 ####
 #
 #
-
 
 
 
@@ -169,18 +169,27 @@ ssh -T git@github.com                               // Test Connection on Server
  
 # change path agar ssh se lena ho ya url se yeh url se ssh me set karta hai
  
-git remote set-url origin git@github.com:Aliens-Company/Course_ACLE.git
- 
+git remote set-url origin git@github.com:Aliens-Company/.git
+
  
 # git Clone Repo on Server ( CMD )
-cd C:/Aliens/Course_ACLE && git clone -b main git@github.com:Aliens-Company/Course_ACLE.git
+cd C:/Aliens && git clone -b main git@github.com:Aliens-Company/.Alien.git
+cd C:/Aliens && git clone -b main git@github.com:Aliens-Company/.Github.git
+cd C:/Aliens && git clone -b main git@github.com:Aliens-Company/Cyborg.git
+cd C:/Aliens && git clone -b main git@github.com:Aliens-Company/Copilot.git
+cd C:/Aliens && git clone -b main git@github.com:Aliens-Company/Report.git
+cd C:/Aliens && git clone -b main git@github.com:Aliens-Company/Attendance.git
+
+
+ 
+
  
 #WebOS & System Updater == PULLLLLLL ( CMD )
 cd C:/Aliens/Course_ACLE && dir && git pull origin main
  
  
 #WebOS & System Updater == PUSHHH  ( CMD )
-cd C:/Aliens/Course_ACLE && git add . && git commit -m " By HimanshuNayak" && git push origin main
+cd C:/Aliens/Wiki_ACLE && git add . && git commit -m "Vikas" && git push origin main
  
  
  
