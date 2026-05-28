@@ -18,6 +18,11 @@ llm:
   # OpenAI settings
   openai_api_key: "${OPENAI_API_KEY}"  # Set via environment variable
   openai_model: "gpt-4"
+
+  # Gemini settings
+  gemini_api_key: "${GEMINI_API_KEY}"  # Set via environment variable
+  gemini_project_id: "projects/783996169477"
+  gemini_model: "gemini-flash-latest"
   
   # Local LLM settings
   local_model: "mistral"  # ollama model name

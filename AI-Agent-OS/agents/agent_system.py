@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from enum import Enum
 from workflows.messaging import SMSWorkflowExecutor
 from core.event_bus import get_event_bus, EventType
+from brain.llm.factory import create_llm_provider
 
 logger = logging.getLogger(__name__)
 
@@ -164,10 +165,12 @@ class CoordinatorAgent(BaseAgent):
 class ExecutorAgent(BaseAgent):
     """Execute tasks - Low-level action execution"""
     
-    def __init__(self):
+    def __init__(self, config: Any):
         super().__init__("executor", "executor")
         self.current_task = None
+        self.config = config
         self.sms_executor = SMSWorkflowExecutor()
+        self.llm_provider = create_llm_provider(config)
         self.register_handler("execute_task", self._handle_execute_task)
         self.register_handler("schedule_tasks", self._handle_schedule_tasks)
     
@@ -197,6 +200,10 @@ class ExecutorAgent(BaseAgent):
         elif action == "send_teams_message":
             result = await self.sms_executor.execute_send_teams_message(self.current_task)
             logger.info(f"Task result: {result}")
+        elif action == "search":
+            query = self.current_task.get("parameters", {}).get("query") or self.current_task.get("command", "")
+            result = await self._execute_search(query)
+            logger.info(f"Search result: {result}")
         elif action == "screenshot":
             result = await self._execute_screenshot()
             logger.info(f"Screenshot result: {result}")
@@ -279,6 +286,34 @@ class ExecutorAgent(BaseAgent):
             logger.error(f"Close app error: {e}")
             return {"success": False, "error": str(e)}
 
+    async def _execute_search(self, query: str) -> Dict[str, Any]:
+        """Execute a search query using the configured LLM provider."""
+        if not query:
+            return {"success": False, "error": "Search query missing"}
+
+        try:
+            logger.info(f"Executing search via LLM provider: {query}")
+            response = await self.llm_provider.generate(
+                prompt=query,
+                temperature=0.2,
+                max_tokens=256
+            )
+
+            if not response.success:
+                return {"success": False, "error": response.error or "LLM provider failed"}
+
+            return {
+                "success": True,
+                "query": query,
+                "answer": response.content,
+                "provider": type(self.llm_provider).__name__,
+                "model": response.model
+            }
+
+        except Exception as e:
+            logger.error(f"Search error: {e}")
+            return {"success": False, "error": str(e)}
+
 
 class PlannerAgent(BaseAgent):
     """Plan task execution - Break down high-level tasks into steps"""
@@ -355,9 +390,9 @@ class MonitorAgent(BaseAgent):
 class AgentSystem:
     """Manage all agents"""
     
-    def __init__(self):
+    def __init__(self, config: Any):
         self.coordinator = CoordinatorAgent()
-        self.executor = ExecutorAgent()
+        self.executor = ExecutorAgent(config)
         self.planner = PlannerAgent()
         self.monitor = MonitorAgent()
         self._agents = [self.coordinator, self.executor, self.planner, self.monitor]

@@ -28,7 +28,7 @@ class AIAgentOS:
     def __init__(self):
         self.kernel = Kernel()
         self.event_bus = get_event_bus()
-        self.agents = AgentSystem()
+        self.agents = None
         self.config = ConfigManager()
         self.logger = StructuredLogger("AI-Agent-OS")
         self.intent_parser = IntentParser()
@@ -43,6 +43,9 @@ class AIAgentOS:
         # Load config
         await self.config.load_from_file("./config/config.yaml")
         
+        # Initialize agent system with configuration
+        self.agents = AgentSystem(self.config)
+
         # Initialize kernel
         await self.kernel.initialize()
         
@@ -104,6 +107,17 @@ class AIAgentOS:
         
         finally:
             await self.shutdown()
+
+    async def shutdown(self):
+        """Shutdown system"""
+        logger.info("Shutting down...")
+        
+        await self.kernel.stop()
+        if self.agents:
+            await self.agents.shutdown()
+        await self.config.save_config()
+        
+        logger.info("System shutdown complete")
     
     async def _process_command_queue(self):
         """Process commands from web interface"""
@@ -119,16 +133,6 @@ class AIAgentOS:
             except Exception as e:
                 logger.error(f"Error processing command queue: {e}")
                 await asyncio.sleep(1)
-    
-    async def shutdown(self):
-        """Shutdown system"""
-        logger.info("Shutting down...")
-        
-        await self.kernel.stop()
-        await self.agents.shutdown()
-        await self.config.save_config()
-        
-        logger.info("System shutdown complete")
 
 
 async def main():

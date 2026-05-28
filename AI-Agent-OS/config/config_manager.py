@@ -1,9 +1,15 @@
 """Configuration management"""
 import json
+import os
 import yaml
 import logging
 from pathlib import Path
 from typing import Dict, Any
+
+try:
+    from dotenv import load_dotenv
+except ImportError:  # pragma: no cover
+    load_dotenv = None  # type: ignore
 
 logger = logging.getLogger(__name__)
 
@@ -31,7 +37,10 @@ class ConfigManager:
                 "model": "gpt-4",
                 "temperature": 0.7,
                 "max_tokens": 2000,
-                "enable_cache": True
+                "enable_cache": True,
+                "gemini_api_key": None,
+                "gemini_project_id": None,
+                "gemini_model": "gemini-flash-latest"
             },
             "vision": {
                 "capture_interval": 0.5,
@@ -52,6 +61,7 @@ class ConfigManager:
     
     async def load_from_file(self, file_path: str):
         """Load configuration from file"""
+        self._load_env()
         path = Path(file_path)
         
         if not path.exists():
@@ -66,12 +76,27 @@ class ConfigManager:
                 with open(path) as f:
                     user_config = json.load(f)
             
+            user_config = self._resolve_env_vars(user_config)
+            
             # Merge with defaults
             self._merge_config(user_config)
             logger.info(f"Configuration loaded from {file_path}")
         
         except Exception as e:
             logger.error(f"Error loading config: {e}")
+
+    def _load_env(self):
+        """Load .env from project root if available."""
+        if load_dotenv is None:
+            return
+
+        env_path = Path(__file__).resolve().parent.parent / ".env"
+        if env_path.exists():
+            try:
+                load_dotenv(env_path, override=False)
+                logger.info(f"Loaded environment variables from {env_path}")
+            except Exception as e:
+                logger.warning(f"Could not load .env: {e}")
     
     def _merge_config(self, user_config: Dict):
         """Merge user config with defaults"""
@@ -80,6 +105,17 @@ class ConfigManager:
                 self.config[key].update(value)
             else:
                 self.config[key] = value
+
+    def _resolve_env_vars(self, value: Any) -> Any:
+        """Resolve ${VAR} placeholders from environment variables."""
+        if isinstance(value, dict):
+            return {k: self._resolve_env_vars(v) for k, v in value.items()}
+        if isinstance(value, list):
+            return [self._resolve_env_vars(v) for v in value]
+        if isinstance(value, str) and value.startswith("${") and value.endswith("}"):
+            env_key = value[2:-1]
+            return os.getenv(env_key, value)
+        return value
     
     async def save_config(self, file_path: str = None):
         """Save configuration to file"""
